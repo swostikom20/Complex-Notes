@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{setspace} \doublespacing
+\title{Complex notes}
+\author{Om Swostik Mishra}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+A path or a curve is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
+($Rng(\gamma)\subset \mathds{C}$) 
+
+$\gamma(a)$: initial point of path; $\gamma(b)$: endpoint of path
+
+$[a,b]$: parameter interval 
+
+$\gamma$ is said to be:
+\begin{enumerate}
+    \item closed if $\gamma(a)=\gamma(b)$
+    \item smooth or $C^1$ if $\gamma$ is differentiable and $\gamma^{'}$ is continuous
+    \item simple if $\gamma$ is one-one
+    \item simple closed if $\gamma(a)=\gamma(b)$ and $\gamma$ is one-one on $(a,b)$
+    \item piecewise smooth if there are finitely many points $s_0,s_1 \dots s_n\in [a.b]$ with $a=s_0<s_1<s_2 \dots <s_n=b$ such that the restriction of $\gamma$ to each $(s_i,s_{i+1})$ is smooth.
+
+\end{enumerate}
+
+$-\gamma$ or $\gamma^{-1}$ is defined by $\gamma^{-1}(t)=\gamma(a+b-t)$
+
+$\upphi:[0,1]\rightarrow [a,b]$ defined as: $\upphi(t)=a+(b-a)t$ (one-one and differentiable)
+
+\textbf{Line integral}: $f:[a,b]\rightarrow \mathds{C}$ : continuous
+
+$f=u+iv$, where $u,v:[a,b]\rightarrow \mathds{R}$
+
+Define $\int_{a}^{b}f(t) dt= \int_{a}^{b}u(t) dt+ i \int_{a}^{b} v(t) dt$
+
+\textbf{Properties}:
+
+\begin{enumerate}
+    \item $\int_{a}^{b} c.f(t) dt= c.\int_{a}^{b}f(t) dt$
+    \item $| \int_{a}^{b}f(t) dt |\leq \int_{a}^{b}|f(t)| dt$
+\end{enumerate}
+\textbf{Length of a smooth curve}: Let $\gamma:[a,b]\rightarrow \mathds{C}$ be a smooth curve. 
+
+$L(\gamma)= \int_{a}^{b} |\gamma^{'}(t)| dt$
+$=\int_{a}^{b} \sqrt{\gamma_1^{'}(t)^2+\gamma_2^{'}(t)^2}  dt$  ($\gamma(t)=\gamma_1(t)+i.\gamma_2(t)$)
+
+If $\gamma:[a,b]\rightarrow C$ is piecewise smooth then $L(\gamma)$ is the sum of the length of its smooth parts.
+
+\textbf{Defn(orientation)}:A curve $\gamma$ is positively oriented if traversed in anti-clockwise direction else is negatively oriented.
+
+\textbf{Examples}:
+\begin{enumerate}
+    \item $\gamma(t)=r.e^{it}$, ($t\in [0,2\pi]$) ($r>0$: simple, smooth curve); 
+    
+    $L(\gamma)=\int_{0}^{2\pi} |i.r.e^{it}| dt= r.(2\pi)$
+    
+    \item $\gamma(t)=e^{it}$, ($t \in [0,4\pi]$): closed, smooth, traverses the unit circle twice in the positive direction
+\end{enumerate}
+\textbf{Integration over paths}:
+$\gamma[a,b]\rightarrow \mathds{C}$ is a smooth curve and $f:\gamma \rightarrow \mathds{C}$: continuous 
+
+\textbf{Defn}: $\int_{\gamma}^{} f(z) dz= \int_{a}^{b} f(\gamma(t)) \gamma^{'}(t) dt=\int_{a}^{b}g(t) dt$ 
+
+($g(t)=f(\gamma(t)) \gamma^{'}(t)$ where $g:[a,b]\rightarrow \mathds{C}$)
+
+Let $[a_1,b_1]$ be any closed interval. Then $\exists \upphi:[a_1,b_1]\rightarrow [a,b]$ (one-one,differentiable and $\upphi(a_1)=a;\upphi(a_2)=b$)
+
+$\upphi[a_1,b_1] \rightarrow \mathds{C}$: smooth 
+
+$\int_{a_1}^{b_1}f(\gamma_1(t)).\gamma_1^{'}(t)dt$ ($=\int_{\gamma_1}^{}f(z) dz$)
+
+$=\int_{a_1}^{b_1}f(\gamma(\upphi(t))).\upphi^{'}(t) dt$
+$=\int_{\gamma}^{} f(\gamma(s)) \gamma^{'}(s) ds=\int_{\gamma}^{}f(z) dz$ ($\upphi(t)=s$)
+
+If $\gamma$ is piecewise smooth, the integral can be split into the sum of its smooth components:
+
+if $\gamma=\gamma_1+\gamma_2 \dots +\gamma_n$, then $\int_{\gamma}^{} f = \int_{\gamma_1}^{} f + \dots + \int_{\gamma_n}^{} f$.
+
+Note that $\gamma_i's$ are smooth.
+
+\textbf{Proposition}: If $f$ and $g$ are continuous on a smooth curve $\gamma$, then 
+\begin{enumerate}
+    \item $\int_{\gamma}^{} \alpha f+\beta g = \alpha \int_{\gamma}^{} f + \beta\int_{\gamma}^{} g$
+    \item $\int_{\gamma^{-}}^{} f = - \int_{\gamma}^{} f$
+    \item $|\int_{\gamma}^{} f(z) dz| \leq \|f\|_{\infty,\gamma} L(\gamma)$ ($\|f\|_{\infty,\gamma}=sup_{z\in \{\gamma\}}|f(z)|$)
+\end{enumerate}
+
+$|\int_{\gamma}^{} f|= |\int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt| \leq \int_{\gamma}^{} |f(\gamma(t)).\gamma^{'}(t)| dt
+\leq \|f\|_{\infty,\gamma} \int_{a}^{b} |\gamma^{'}(t)| dt$   ($L(\gamma)=\int_{a}^{b} |\gamma^{'}(t)| dt$)
+\textbf{Examples}: 
+
+(i)Let $\gamma$ be the arc of a circle of radius 3 ($|z|=3$) from $3$ to $3i$.
+
+Show that:
+
+$$|\int_{\gamma}^{} \frac{z+4}{z^3-1} dz| \leq \frac{21\pi}{52}$$
+
+(ii) $\gamma: |z|=2$  (traverse curve in positive direction)
+
+Prove: $$|\int_{\gamma}^{} \frac{e^z dz}{z^2+1} | \leq \frac{4\pi e^2}{3}$$
+
+\textbf{Fundamental theorem of calculus}: 
+
+If $f:[a,b]\rightarrow \mathds{R}$ has a primitive F, then $\int_{a}^{b} f(x) dx =F(b)-F(a)$ ($F^{'}(x)=f(x), \forall x\in [a,b]$)
+
+\textbf{Definition}: Suppose $G\in \mathds{C}$ be a domain. If a continuous function $f:G\rightarrow \mathds{C}$ has a primitive $F$ on $G$ and if $\gamma$ is a smooth curve in G with initial and terminal points $\omega_1$ and $\omega_2$ respectively, then:
+
+$\int_{\gamma}^{} f = F(\omega_1) - F(\omega_2)$
+
+Proof: Let $[a,b]\in \mathds{R}$ be a parameter interval for $\gamma$ and $\gamma(a)=\omega_1$; $\gamma(b)=\omega_2$
+
+Given $F^{'}(z)=f(z)$   ($\forall z \in G$)
+
+$$\int_{\gamma}^{} f = \int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt = \int_{a}^{b} F^{'}(\gamma(t))\gamma^{'}(t) dt$$
+
+$$= \int_{a}^{b} (F \circ \gamma)^{'}(t) dt = F \circ \gamma(b)-F \circ \gamma(a)= F(\omega_2)-F(\omega_1)$$
+
+\textbf{Corollary-1}: If $\gamma$ is a closed curve (smooth), then
+
+$\int_{\gamma}^{} f =0$ (Proof follows from FTC)
+
+\textbf{Corollary-2}: If $f\in H(\Omega)$ for a region $\Omega\in \mathds{C}$ and if $f^{'}=0$ on $\Omega$, then $f$ is a constant function.
+
+Proof: Fix a point $\omega_0\in \Omega$. It suffices to show that $f(\omega)=f(\omega_0), \forall \omega \in \Omega$
+
+\textbf{Simple Closed Curve}: 
+
+Jordan-curve theorem: Every simple closed curve in $\mathds{C}$ divides the complex plane into two regions. One of these regions is bounded and the other is unbounded. The bounded region is called the interior of the curve.
+
+\textbf{Example}: $G=\mathds{C}\setminus \{0\}$
+
+$f(z)=\frac{1}{z}$ on $G$, $\gamma: |z|=1$, $\gamma(t)=e^{it}$, ($t\in [0,2\pi]$)
+
+$$\int_{\gamma}^{} f= \int_{0}^{2\pi} f(\gamma(t)).\gamma^{'}(t) dt= \int_{0}^{2\pi} \frac{i.e^{it}}{e^{it}} dt =2\pi i\neq 0$$
+
+\textbf{Winding number or index of a closed curve}:
+Let$\gamma$ be a closed curve on $\mathds{C}$ and let $\alpha \in \mathds{C}\setminus \{\gamma\}$. The winding number of $\gamma$ about $\alpha$ or the index of $\gamma$ with respect to $\alpha$ is denoted by:
+$\eta(\gamma;\alpha)/Ind_{\gamma}(\alpha)$ defined by:
+
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{}\frac{dz}{z-\alpha}$$
+
+\textbf{Example}: $\gamma: [0,6\pi]\rightarrow \mathds{C}$ 
+
+$\gamma(t)=a+re^{it}$ 
+
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{\gamma^{'}(t)}{\gamma(t)-a}=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{1}{a+re^{it}-a}.ire^{it} dt=1$$
+
+\textbf{Theorem}: Let $\gamma$ be a smooth, closed curve in $\mathds{C}$. Let $\alpha\in \mathds{C}\setminus \{\gamma\}$. Then $\eta(\gamma;\alpha)\in \mathds{Z}$.
+
+Proof: To be done
+
+
+\end{flushleft}
+\end{document}
