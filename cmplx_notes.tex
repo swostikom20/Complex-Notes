@@ -12,6 +12,168 @@
 \maketitle
 
 \begin{flushleft}
+\textbf{Defn}: An open, connected subset of $\mathds{C}$ is called domain or region.
+
+$D(a,r)=\{z\in \mathds{C}|\: |z-a|<r\}$
+
+$\{z\in \mathds{C}|\:r<|z-a|<R\}$$\rightarrow$annulus
+
+\textbf{Exponential function}: $exp(z):\mathds{C}\rightarrow\mathds{C}$
+
+$e^z=e^x(cos(y)+isin(y))$
+
+$e^{z_1+z_2}=e^{z_1}.e^{z_2}$, $0\notin Rng(exp(z))$
+
+$|e^{ix}|=1$ ($\forall x\in \mathds{R}$)
+
+$e^{z}=1$ iff $z=2n\pi i$,$n\in \mathds{Z}$
+
+$e^{z_1}=e^{z_2}$ iff $z_1=z_2+2n\pi i$
+
+\textbf{Argument}: 
+$\theta=arg(z)$ (Angle made wrt positive real axis)
+
+$arg(z)$ for $z\in \mathds{C}\setminus \{0\}$ is multivalued function.
+
+$arg(z): \mathds{C}\setminus \{0\}\rightarrow (\alpha,\alpha+2\pi]$ or $[\alpha,\alpha+2\pi)$ is well-defined ($\forall \alpha \in \mathds{R}$)
+
+\textbf{Principal value}:$Arg(z)=\theta$  ($-\pi<\theta\leq \pi$)
+
+$arg(z)=\{Arg(z)+2n\pi:n\in \mathds{Z}\}$
+
+\textbf{Complex Log}:For $z\in \mathds{C}\setminus \{0\}$, define $log(z)=log(|z|)+arg(z)$ (multivalued)
+
+Whenever $arg(z)$ is well-defined (i.e $R(arg(z))=[\alpha,\alpha+2\pi)$ or $(\alpha,\alpha+2\pi]$)
+
+$\Rightarrow log(z)$ is well defined
+
+$Log(z)=log(|z|)+i.Arg(z)$: principal log ($log(z)=Log(z)+i2n\pi$)
+
+\textbf{Lemma}: For $z\in \mathds{C}\setminus \{0\}$, the values of log(z) are the complex numbers $\omega$ such that $e^{\omega}=z$
+
+Proof: Do it on your own!
+
+\textbf{Limit}: $f: E\subset\mathds{C} \rightarrow \mathds{C}$
+
+$\lim_{z \to z_0} f(z)=l$ 
+
+$\forall \epsilon>0,\exists \delta>0$ such that $0<|z-z_0|<\delta \Rightarrow |f(z)-l|<\epsilon$ 
+
+$z \in (B(z,z_0)\setminus\{0\})\cap E \Rightarrow f(z)\in B(l,\epsilon)$ 
+
+\textbf{Proposition}: A function $f:E\subset  \mathds{C}\rightarrow \mathds{C}$ has a limit point $l$ as $z\rightarrow z_0$ iff $f(z_n)\rightarrow l$ for every sequence $\{z_n\}\subset E\setminus \{z_0\}$ with $z_n\rightarrow z_0$ as $n\rightarrow \infty$
+
+\textbf{Theorem}: If $f:E\subset \mathds{C} \rightarrow \mathds{C}$ has a limit at $z_0$, then $f$ is bounded near $z_0$
+
+\textbf{Continuity}: $f:E\subset \mathds{C}\rightarrow \mathds{C}$
+
+$f$ is continuous at $z_0\in E$ if for every basic neighbourhood $V$ of $f(z_0)$, there is a basic neighbourhood $U$ of $z_0$ such that $f(U)\subset V$
+
+Let $V=B(f(z_0),\epsilon)$, $U=B(z_0,\delta)$
+
+$z\in B(z_0,\delta)\Rightarrow f(z)\in B(f(z_0),\epsilon)$
+
+$|z-z_0|<\delta \Rightarrow |f(z)-f(z_0)|<\epsilon$
+
+Then, $z\in B(z_0,\delta)\setminus \{z_0\} \Rightarrow f(z)\in B(f(z_0),\epsilon)$
+
+$\lim_{z \to z_0} f(z)=f(z_0)$
+
+$Arg: \mathds{C}\setminus \{0\} \rightarrow (-\pi,\pi]$
+
+$Log(z)=log(|z|)+i.Arg(z)$ (defined on $\mathds{C}\setminus \{0\}$)
+
+$Log(z)$ is continuous on $C\setminus (-\infty,0]$ as $Arg(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$
+
+\textbf{Defn}: Let $G\subset \mathds{C}$ be a region. A continuous function $f:G\rightarrow \mathds{C}$ is called a branch of logarithm in $G$ if:
+
+$e^{f(z)}=z$ ($\forall z\in G$) ($\Rightarrow 0\notin G$)
+
+$e^{Log(z)}=z$ ($\forall z\in \mathds{C}\setminus \{0\}$)
+
+But $Log(z)$ isn't continuous on $\mathds{C}\setminus\{0\}$
+
+Therefore, $Log(z)$ is a branch of log in $\mathds{C}\setminus (-\infty,0]$ 
+
+$f_k=Log(z)+2k\pi i$, $k\in \mathds{Z}$
+
+$e^{f_k(z)}=z$ (Each $f_k$ is a branch of log in G)
+
+\textbf{Theorem}: Let $f:G\rightarrow \mathds{C}$ be a branch of log. Then $g:G\rightarrow \mathds{C}$ is a branch of log iff $g(z)=f(z)+2k\pi i$ (for some $k\in \mathds{Z}$)
+
+Proof: ($\Rightarrow$) if $f$ is a branch of log, then so is $g$
+
+($\Leftarrow$) Let $g:G\rightarrow \mathds{C}$ be a branch of log. 
+
+Then, (i) $g$ is continuous
+
+(ii) $e^{g(z)}=z$, $\forall z\in G$
+
+Since $f:G\rightarrow \mathds{C}$ is a branch of log, we have, 
+
+(i) $f$ is continuous 
+
+(ii)$e^{f(z)}=z$, $\forall z\in G$
+
+$e^{g(z)}=e^z=e^{f(z)}$ ($\forall z\in G$)
+
+$\Rightarrow g(z)=f(z)+ 2k(z)\pi i$ ($k$ depends on $z$)
+
+$k: G\subset \mathds{C}\rightarrow \mathds{Z}$
+
+$k(z)=\frac{1}{2\pi i}(g(z)-f(z))$ ($k$ is continuous)
+
+Since $G$ is connected, $Img(k)$ is connected  (subset of $\mathds{Z}$)
+
+$\Rightarrow k(z)$ is constant 
+
+Hence, the claim follows.
+
+\textbf{Unit disk in $\mathds{C}$}: $D=\{z\in \mathds{C}: |z|< 1\}$
+
+$0\in D$, hence $D$ cannot be a branch of log. 
+
+$D\setminus \{0\}$ isn't a branch of log. (Why?)
+
+$Log(z): \mathds{C}\setminus (-\infty,0]\rightarrow \mathds{C}$
+
+The half-line is called a branch-cut for any member of $\{Log(z)+2k\pi i: k\in \mathds{Z}\}$
+
+\textbf{Q}: How do you make a branch-cut to define a branch of $Log(z+i-1)$?
+
+\textbf{Power functions}: Let $\alpha \in \mathds{C}$. We define $z^{\alpha}$ to be the multi-valued function:
+
+$z^{\alpha}=e^{\alpha log(z)}$ , $z\neq 0$
+
+$z^{\alpha}=e^{\alpha log(z)}= e^{\alpha(log(|z|)+ arg(z))}= e^{\alpha(Log(z)+2k\pi i)}$  ($k\in \mathds{Z}$) 
+
+$=e^{\alpha Log(z)}.e^{2\pi ik\alpha}$ 
+
+Let $\alpha=n \in \mathds{N}$. Then $z^{\alpha}=e^{nLog(z)}$ which is single-valued.
+
+\textbf{Defn}: Let $\Omega \subset \mathds{C}$ and $f: \Omega \rightarrow \mathds{C}$. Then $f$ is said to be differentiable at $z_0\in \Omega$ if,
+
+$f^{'}(z_0)= \lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$ exists 
+
+\textbf{Entire functions}: If a function $f$ is analytic at every point in $\mathds{C}\Rightarrow f$ is entire.
+
+Example: $f(z)\rightarrow$ polynomial in $\mathds{C}$ 
+
+$f(z)=frac{1}{z}$ (differentiable at every point on $\mathds{C}\setminus \{0\}$)
+
+\textbf{Proposition}: If $f$ and $g$ are differentiable at $z_0\in \Omega \subset \mathds{C}$, then so are:
+
+(i)$f+g$, (ii)$fg$, (iii)$f/g$ ($g(z_0)\neq 0$)
+
+\textbf{Chain Rule}: $f:\Omega \rightarrow U$, $g:U\rightarrow \mathds{C}$ are holomorphic at $z_0$ and $f(z_0)$ respectively.
+Then $g\circ f:\Omega\rightarrow \mathds{C}$ is holomorphic at $z_0$ and $(g\circ f)^{'}(z_0)=g^{'}(f(z_0)).f^{'}(z_0)$
+
+Example: $f(z)=\bar{z}$ isn't differentiable at any point in $\mathds{C}$.
+
+\textbf{Cauchy-Riemann equations}: To do 
+
+\textbf{Defn}: A function is said to be holomorphic at $z_0$ if it is differentiable in a neighbourhood of $z_0$
+
 A path or a curve is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
 ($Rng(\gamma)\subset \mathds{C}$) 
 
