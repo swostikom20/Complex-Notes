@@ -12,7 +12,7 @@
 \maketitle
 
 \begin{flushleft}
-\textbf{Defn}: An open, connected subset of $\mathds{C}$ is called domain or region.
+\textbf{Definition}: An open, connected subset of $\mathds{C}$ is called domain or region.
 
 $D(a,r)=\{z\in \mathds{C}|\: |z-a|<r\}$
 
@@ -41,7 +41,7 @@ $arg(z): \mathds{C}\setminus \{0\}\rightarrow (\alpha,\alpha+2\pi]$ or $[\alpha,
 
 $arg(z)=\{Arg(z)+2n\pi:n\in \mathds{Z}\}$
 
-\textbf{Complex Log}:For $z\in \mathds{C}\setminus \{0\}$, define $log(z)=log(|z|)+arg(z)$ (multivalued)
+\textbf{Complex Log}: For $z\in \mathds{C}\setminus \{0\}$, define $log(z)=log(|z|)+arg(z)$ (multivalued)
 
 Whenever $arg(z)$ is well-defined (i.e $R(arg(z))=[\alpha,\alpha+2\pi)$ or $(\alpha,\alpha+2\pi]$)
 
@@ -51,7 +51,7 @@ $Log(z)=log(|z|)+i.Arg(z)$: principal log ($log(z)=Log(z)+i2n\pi$)
 
 \textbf{Lemma}: For $z\in \mathds{C}\setminus \{0\}$, the values of log(z) are the complex numbers $\omega$ such that $e^{\omega}=z$
 
-Proof: Do it on your own!
+\textbf{Proof}: Do it on your own!
 
 \textbf{Limit}: $f: E\subset\mathds{C} \rightarrow \mathds{C}$
 
@@ -85,7 +85,7 @@ $Log(z)=log(|z|)+i.Arg(z)$ (defined on $\mathds{C}\setminus \{0\}$)
 
 $Log(z)$ is continuous on $C\setminus (-\infty,0]$ as $Arg(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$
 
-\textbf{Defn}: Let $G\subset \mathds{C}$ be a region. A continuous function $f:G\rightarrow \mathds{C}$ is called a branch of logarithm in $G$ if:
+\textbf{Definition}: Let $G\subset \mathds{C}$ be a region. A continuous function $f:G\rightarrow \mathds{C}$ is called a branch of logarithm in $G$ if:
 
 $e^{f(z)}=z$ ($\forall z\in G$) ($\Rightarrow 0\notin G$)
 
@@ -151,15 +151,17 @@ $=e^{\alpha Log(z)}.e^{2\pi ik\alpha}$
 
 Let $\alpha=n \in \mathds{N}$. Then $z^{\alpha}=e^{nLog(z)}$ which is single-valued.
 
-\textbf{Defn}: Let $\Omega \subset \mathds{C}$ and $f: \Omega \rightarrow \mathds{C}$. Then $f$ is said to be differentiable at $z_0\in \Omega$ if,
+\textbf{Definition}: Let $\Omega \subset \mathds{C}$ and $f: \Omega \rightarrow \mathds{C}$. Then $f$ is said to be differentiable at $z_0\in \Omega$ if,
 
 $f^{'}(z_0)= \lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$ exists 
+
+\textbf{Definition}: A function is said to be holomorphic at $z_0$ if it is differentiable in a neighbourhood of $z_0$
 
 \textbf{Entire functions}: If a function $f$ is analytic at every point in $\mathds{C}\Rightarrow f$ is entire.
 
 Example: $f(z)\rightarrow$ polynomial in $\mathds{C}$ 
 
-$f(z)=frac{1}{z}$ (differentiable at every point on $\mathds{C}\setminus \{0\}$)
+$f(z)=\frac{1}{z}$ (differentiable at every point on $\mathds{C}\setminus \{0\}$)
 
 \textbf{Proposition}: If $f$ and $g$ are differentiable at $z_0\in \Omega \subset \mathds{C}$, then so are:
 
@@ -172,9 +174,62 @@ Example: $f(z)=\bar{z}$ isn't differentiable at any point in $\mathds{C}$.
 
 \textbf{Cauchy-Riemann equations}: To do 
 
-\textbf{Defn}: A function is said to be holomorphic at $z_0$ if it is differentiable in a neighbourhood of $z_0$
+\textbf{Power series}: A series of the form $\sum_{0}^{\infty} a_n(z-z_0)^n$ ($a_n,z,z_0\in \mathds{C}$; $z_0$ is center)
 
-A path or a curve is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
+\textbf{Theorem(Radius of convergence)}: Given a power series $\sum_{0}^{\infty} a_n(z)^n$,
+
+$\exists R\in [0,\infty) \cup \{\infty\}$ such that:
+
+(i) the series converges ($\forall z\in B(0,R)$; the disk of convergence)
+
+(ii) diverges $\forall z$ such that $|z|>R$ 
+
+Convention: if $\frac{1}{0}=+\infty ; \frac{1}{\infty}=0$, then $R=\frac{1}{\limsup |a_n|^{\frac{1}{n}}}$
+
+\textbf{Proof}: Can be found in any standard text (Try Conway!)
+
+$e^z=\sum_{}^{}\frac{z^n}{n!}$ ($R=+\infty$ i.e an entire function)
+
+\textbf{Theorem}: The power series $f(z)=\sum_{n=0}^{\infty} a_nz^n$ defines a holomorphic function (in its disk of convergence)
+
+Derivative of $f$ is obtained by differentiation of each term:
+
+$f^{'}(z)=\sum_{n=0}^{\infty} na_nz^{n-1}$ 
+
+$f^{'}$ has same disk of convergence
+
+\textbf{Proof}: Found in any standard text
+
+\textbf{Remark}: A power series is infinitely differentiable and analytic in its disk of convergence
+
+$f(z)=\sum_{}^{}a_nz^n =\sum_{k=0}^{\infty} \frac{f^{k}(0)}{k!} z^k$
+
+\textbf{Examples}: (i) $\sum_{n=1}^{\infty} nz^n <\infty$ ($\forall z \in B(0,1)$; doesn't converge for $|z|=1$) 
+
+(ii) $\sum_{n=1}^{\infty} \frac{z^n}{n^2} <\infty$ ($\forall z\in B(0,1)$; converges for $|z|=1$)
+
+(iii) $\sum_{n=1}^{\infty} \frac{z^n}{n} <\infty$ (converges for $|z|<1$; diverges otherwise)
+
+\textbf{Proposition}: Let $\Omega_1,\Omega_2 \subset \mathds{C}$ be domains and let $f:\Omega_1\rightarrow \mathds{C}$,
+$g:\Omega_2\rightarrow \mathds{C}$ be continuous function such that $f(\Omega_1)\subset \Omega_2$ and that $g(f(z))=z$ ($\forall z\in \Omega_1$).
+If $g$ is differentiable on $\Omega_2$ and if $g^{'}(w)\neq 0$ ($\forall w \in \Omega_2$), then $f$ is differentiable and $f^{'}(z)=\frac{1}{g^{'}(f(z))}$ ($\forall z\in \Omega_1$)
+
+\textbf{Theorem}: A branch of logarithm is analytic and its derivative is $\frac{1}{z}$.
+
+\textbf{Proof}: Let $f$ be a branch of log. Define $g(z)=e^z$. Then $g(f(z))=z$. ($e^{f(z)}=z$)
+
+\textbf{Lemma}: Let $f:\Omega \rightarrow \mathds{C}$. Then $f$ is differentiable at $z_0\in \Omega$ iff $\exists a\in \mathds{C}$ such that 
+
+$f(z_0+h)-f(z_0)= ah+h\psi(h)$ ($\lim_{h \to 0} \psi(h)=0$)
+
+\textbf{Theorem}: Let $\Omega \subset \mathds{C}$ be a domain and let $f=u+iv$ is a function from $\Omega$ to $\mathds{C}$.
+Then $f$ is analytic at $z_0\in \Omega$ iff the partial derivatives exist, are continuous and satisfy Cauchy-Riemann equations.
+
+\textbf{Proof}: Conway
+
+\clearpage
+
+A \textbf{path} or a \textbf{curve} is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
 ($Rng(\gamma)\subset \mathds{C}$) 
 
 $\gamma(a)$: initial point of path; $\gamma(b)$: endpoint of path
@@ -214,7 +269,7 @@ $=\int_{a}^{b} \sqrt{\gamma_1^{'}(t)^2+\gamma_2^{'}(t)^2}  dt$  ($\gamma(t)=\gam
 
 If $\gamma:[a,b]\rightarrow C$ is piecewise smooth then $L(\gamma)$ is the sum of the length of its smooth parts.
 
-\textbf{Defn(orientation)}:A curve $\gamma$ is positively oriented if traversed in anti-clockwise direction else is negatively oriented.
+\textbf{Definition(orientation)}:A curve $\gamma$ is positively oriented if traversed in anti-clockwise direction else is negatively oriented.
 
 \textbf{Examples}:
 \begin{enumerate}
@@ -227,7 +282,7 @@ If $\gamma:[a,b]\rightarrow C$ is piecewise smooth then $L(\gamma)$ is the sum o
 \textbf{Integration over paths}:
 $\gamma[a,b]\rightarrow \mathds{C}$ is a smooth curve and $f:\gamma \rightarrow \mathds{C}$: continuous 
 
-\textbf{Defn}: $\int_{\gamma}^{} f(z) dz= \int_{a}^{b} f(\gamma(t)) \gamma^{'}(t) dt=\int_{a}^{b}g(t) dt$ 
+\textbf{Definiton}: $\int_{\gamma}^{} f(z) dz= \int_{a}^{b} f(\gamma(t)) \gamma^{'}(t) dt=\int_{a}^{b}g(t) dt$ 
 
 ($g(t)=f(\gamma(t)) \gamma^{'}(t)$ where $g:[a,b]\rightarrow \mathds{C}$)
 
@@ -315,7 +370,7 @@ $$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{\gamma^{'}(t)}{\gam
 
 \textbf{Theorem}: Let $\gamma$ be a smooth, closed curve in $\mathds{C}$. Let $\alpha\in \mathds{C}\setminus \{\gamma\}$. Then $\eta(\gamma;\alpha)\in \mathds{Z}$.
 
-Proof: To be done
+\textbf{Proof}: To be done
 
 
 \end{flushleft}
