@@ -1,0 +1,612 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{setspace} \doublespacing
+\usepackage{mathtools}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\sffamily\Large\filcenter\bfseries}{\S\thesection.}{0.25cm}{\Large}
+\titleformat{\subsection}[block]{\large\bfseries\sffamily}{\S\S\thesubsection.}{0.2cm}{\large}
+\usepackage{hyperref}
+\title{\textbf{MA-412}\\ \textbf{Complex Analysis}}
+\author{Om Swostik\\\url{https://github.com/swostikom20/}}
+\date{Spring Semester 2022-2023}
+\begin{document}
+\maketitle
+\clearpage
+\begin{flushleft}
+\section{Preliminaries}
+\textbf{Region}: An open, connected subset of $\mathds{C}$ is called domain or region.
+\begin{align}
+&D(a,r)=\{z\in \mathds{C}|\: |z-a|<r\} \nonumber\\
+&\{z\in \mathds{C}|\:r<|z-a|<R\}  \rightarrow \text{annulus} \nonumber
+\end{align}
+\textbf{Exponential function}: $exp(z):\mathds{C}\rightarrow\mathds{C}$
+\begin{align}
+&e^z=e^x(cos(y)+isin(y))\nonumber\\
+&e^{z_1+z_2}=e^{z_1}.e^{z_2},  0\notin Rng(exp(z))\nonumber\\
+&|e^{ix}|=1  \:\: (\forall x\in \mathds{R})\nonumber\\
+&e^{z}=1 \:\:\text{iff} \:\: z=2n\pi i\text{,} \:\: n\in \mathds{Z}\nonumber\\
+&e^{z_1}=e^{z_2} \:\:\text{iff}\:\: z_1=z_2+2n\pi i\nonumber
+\end{align}
+\textbf{Argument}: $arg(z):\mathds{C}\setminus \{0\}\rightarrow\mathds{C}$
+\begin{align}
+&arg(z)=\theta \:\:\text{(Angle made wrt positive real axis)} \nonumber\\
+&arg(z) \:\:\text{for} \:\: z\in \mathds{C}\setminus \{0\} \:\:\text{is multivalued function} \nonumber\\
+&arg(z): \mathds{C}\setminus \{0\}\rightarrow (\alpha,\alpha+2\pi] \:\:\text{or}\:\: [\alpha,\alpha+2\pi) \:\:\text{is well-defined}\:\: (\forall \alpha \in \mathds{R})\nonumber
+\end{align} 
+\textbf{Principal value}: 
+$\begin{aligned}[t] 
+&Arg(z)=\theta  \:\: (-\pi<\theta\leq \pi)\\ &arg(z)=\{Arg(z)+2n\pi:n\in \mathds{Z}\}
+\end{aligned}$ \:\:
+\\
+\vspace{5mm}
+\textbf{Complex Log}: For $z\in \mathds{C}\setminus \{0\}$, define: \begin{equation} log(z)=log(|z|)+ iarg(z) \nonumber \end{equation} 
+Notice that $log$ is multivalued\\
+\clearpage
+Whenever $arg(z)$ is well-defined (i.e $Rng(arg(z))=[\alpha,\alpha+2\pi)$ or $(\alpha,\alpha+2\pi]$)\\$\Rightarrow log(z)$ is well defined
+\begin{align}
+&Log(z)=log(|z|)+i.Arg(z) \:\:\text{(principal log)} \nonumber\\
+&log(z)=Log(z)+2n\pi i \nonumber
+\end{align}
+\textbf{Lemma 1.1}: For $z\in \mathds{C}\setminus \{0\}$, the values of $log(z)$ are the complex numbers $\omega$ such that $e^{\omega}=z$\\
+\textbf{Proof}: Do it on your own!\\
+\vspace{3mm}
+\textbf{Limit}: $f: E\subseteq \mathds{C} \rightarrow \mathds{C}$
+\begin{align}
+&\lim_{z \to z_0} f(z)=l \nonumber\\
+&\forall \epsilon>0,\exists \delta>0 \:\:\text{such that}\:\: 0<|z-z_0|<\delta \Rightarrow |f(z)-l|<\epsilon\nonumber\\
+&z \in (B(z,z_0)\setminus\{0\})\cap E \Rightarrow f(z)\in B(l,\epsilon) \nonumber
+\end{align}
+\textbf{Proposition 1.1 (Sequential criteria for limit)}: \\ A function $f:E\subseteq  \mathds{C}\rightarrow \mathds{C}$ has a limit point $l$ as $z\rightarrow z_0$ iff $f(z_n)\rightarrow l$ for every sequence $\{z_n\}\subset E\setminus \{z_0\}$ with $z_n\rightarrow z_0$ as $n\rightarrow \infty$\\
+\vspace{2mm}
+\textbf{Theorem 1.1}: If $f:E\subset \mathds{C} \rightarrow \mathds{C}$ has a limit at $z_0$, then $f$ is bounded near $z_0$\\
+\vspace{2mm}
+\textbf{Continuity}: $f:E\subseteq \mathds{C}\rightarrow \mathds{C}$\\
+$f$ is continuous at $z_0\in E$ if for every basic neighbourhood $V$ of $f(z_0)$, there is a basic neighbourhood $U$ of $z_0$ such that $f(U)\subset V$. Let $V=B(f(z_0),\epsilon)$ \& $U=B(z_0,\delta)$,
+\begin{center}
+$z\in B(z_0,\delta)\Rightarrow f(z)\in B(f(z_0),\epsilon)$\\
+$|z-z_0|<\delta \Rightarrow |f(z)-f(z_0)|<\epsilon$\\
+Then, $z\in B(z_0,\delta)\setminus \{z_0\} \Rightarrow f(z)\in B(f(z_0),\epsilon)$\\
+$\lim_{z \to z_0} f(z)=f(z_0)$
+\end{center}
+\textbf{Prove}: Let $f:G\rightarrow \mathds{C}$ such that $f=u+ iv$ (where $u,v:G\rightarrow \mathds{R}$)
+
+$f$ is continuous at a point $z_0$ iff $u,v$ are continuous at $z_0$
+
+\clearpage
+
+\section{Branch of Log and Power function}
+$Arg: \mathds{C}\setminus \{0\} \rightarrow (-\pi,\pi]$\\
+$Log(z)=log(|z|)+i.Arg(z)$ (defined on $\mathds{C}\setminus \{0\}$)\\
+$Log(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$ as $Arg(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$\\
+\subsection{\textbf{Branch of Log}}
+Let $G\subset \mathds{C}$ be a region. A continuous function $f:G\rightarrow \mathds{C}$ is called a branch of logarithm in $G$ if:
+\begin{align}
+&e^{f(z)}=z \:\:(\forall z\in G) (\Rightarrow 0\notin G)\nonumber\\
+&e^{Log(z)}=z \:\: (\forall z\in \mathds{C}\setminus \{0\})\nonumber
+\end{align}
+But $Log(z)$ isn't continuous on $\mathds{C}\setminus\{0\}$\\
+Therefore, $Log(z)$ is a branch of log in $\mathds{C}\setminus (-\infty,0]$ 
+\begin{align}
+&f_k=Log(z)+2k\pi i\text{,}\:\: k\in \mathds{Z}\nonumber \\
+&e^{f_k(z)}=z \:\:(\text{Each $f_k$ is a branch of log in G})\nonumber
+\end{align}
+\textbf{Theorem 2.1}: Let $f:G\rightarrow \mathds{C}$ be a branch of log. Then $g:G\rightarrow \mathds{C}$ is a branch of log iff $g(z)=f(z)+2k\pi i$ (for some $k\in \mathds{Z}$)
+
+\textbf{Proof}: ($\Rightarrow$) if $f$ is a branch of log, then so is $g$
+
+($\Leftarrow$) Let $g:G\rightarrow \mathds{C}$ be a branch of log. 
+
+Then, (i) $g$ is continuous
+
+(ii) $e^{g(z)}=z$, $\forall z\in G$
+
+Since $f:G\rightarrow \mathds{C}$ is a branch of log, we have, 
+
+(i) $f$ is continuous 
+
+(ii)$e^{f(z)}=z$, $\forall z\in G$
+
+$e^{g(z)}=z=e^{f(z)}$ ($\forall z\in G$)
+
+$\Rightarrow g(z)=f(z)+ 2k(z)\pi i$ ($k$ depends on $z$)
+
+$k: G\subset \mathds{C}\rightarrow \mathds{Z}$
+
+$k(z)=\frac{1}{2\pi i}(g(z)-f(z))$ ($k$ is continuous)
+
+Since $G$ is connected, $Img(k)$ is connected  (subset of $\mathds{Z}$)
+
+$\Rightarrow k(z)$ is constant 
+
+Hence, the claim follows.
+
+\textbf{Unit disk in $\mathds{C}$}: $D=\{z\in \mathds{C}: |z|< 1\}$
+
+$0\in D$, hence $D$ cannot be a branch of log. 
+
+$D\setminus \{0\}$ isn't a branch of log. (Why?)
+
+$Log(z): \mathds{C}\setminus (-\infty,0]\rightarrow \mathds{C}$
+
+The half-line is called a branch-cut for any member of $\{Log(z)+2k\pi i: k\in \mathds{Z}\}$
+
+\textbf{Question}: How do you make a branch-cut to define a branch of $Log(z+i-1)$?
+
+\subsection{\textbf{Power functions}}
+
+Let $\alpha \in \mathds{C}$. We define $z^{\alpha}$ to be the multi-valued function:
+\begin{align} 
+z^{\alpha}=e^{\alpha log(z)}&= e^{\alpha(log(|z|)+ iarg(z))}\nonumber\\
+&= e^{\alpha(Log(z)+2k\pi i)}\nonumber\\
+&=e^{\alpha Log(z)}.e^{2\pi ik\alpha} \:\:(z\neq 0\text{,} \:k\in \mathds{Z})\nonumber
+\end{align}
+Let $\alpha=n \in \mathds{N}$. Then $z^{\alpha}=e^{nLog(z)}$ which is single-valued.
+\clearpage
+\section{Differentiability and Power series}
+
+\subsection{\textbf{Differentiability}} 
+
+Let $\Omega \subseteq \mathds{C}$ and $f: \Omega \rightarrow \mathds{C}$. Then $f$ is said to be differentiable at $z_0\in \Omega$ if,
+
+$$f^{'}(z_0)= \lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$$ exists 
+
+Example: $f(z)=\bar{z}$ isn't differentiable at any point in $\mathds{C}$.
+
+\textbf{Cauchy-Riemann equations}: Let $f:\Omega \rightarrow C$ be differentiable at $z_0=x_0+iy_0$. Then,
+
+$$\frac{\partial u}{\partial x}(x_0,y_0)=\frac{\partial v}{\partial y}(x_0,y_0)$$
+
+$$\frac{\partial u}{\partial y}(x_0,y_0)= -\frac{\partial v}{\partial x}(x_0,y_0)$$
+
+Further, $$f^{'}(z_0)= \frac{\partial u}{\partial x}(x_0,y_0)+i\frac{\partial v}{\partial x}(x_0,y_0)$$
+
+Note that the last equation only has partial derivatives wrt $x$.
+
+\textbf{Proof (Sketch)}: In the differential, approach the origin once through the real axis and and then the imaginary axis to get some equations  
+
+\textbf{Holomorphic/Analytic}: A function is said to be \textbf{holomorphic} or \textbf{analytic} at $z_0$ if it is differentiable in a neighbourhood of $z_0$. 
+
+If a function is analytic at a point, it is called a regular point for the function 
+
+\textbf{Entire functions}: If a function $f$ is analytic at every point in $\mathds{C}\Rightarrow f$ is entire.
+
+Example: 
+\begin{enumerate}
+\item $f(z)\rightarrow$ polynomial in $\mathds{C}$ 
+\item$f(z)=\frac{1}{z}\rightarrow$ not an entire function (differentiable at every point on $\mathds{C}\setminus \{0\}$)
+\end{enumerate}
+\textbf{Proposition 3.1}: If $f$ and $g$ are differentiable at $z_0\in \Omega \subset \mathds{C}$, then so are:
+
+(i)$f+g$, (ii)$fg$, (iii)$f/g$ ($g(z_0)\neq 0$)
+
+\textbf{Proof}: Trivial
+
+\textbf{Chain Rule}: $f:\Omega \rightarrow U$, $g:U\rightarrow \mathds{C}$ are holomorphic at $z_0$ and $f(z_0)$ respectively.
+Then $g\circ f:\Omega\rightarrow \mathds{C}$ is holomorphic at $z_0$ and $(g\circ f)^{'}(z_0)=g^{'}(f(z_0)).f^{'}(z_0)$
+
+\textbf{Proof}: Let $h=(g\circ f)$ 
+\begin{equation*}
+\begin{split}
+h^{'}(z_0)&= \lim_{z \to z_0} \frac{g(f(z))-g(f(z_0))}{z-z_0} \\
+&=\lim_{z \to z_0} \frac{g(f(z))-g(f(z_0))}{f(z)-f(z_0)}.\frac{f(z)-f(z_0)}{z-z_0} \\
+&=\lim_{f(z) \to f(z_0)} \frac{g(f(z))-g(f(z_0))}{f(z)-f(z_0)}.\lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}=g^{'}(f(z_0))\:f^{'}(z_0) \:\:\:\: (\text{Using continuity of $f$}) 
+\end{split}
+\end{equation*}
+
+\subsection{\textbf{Power series}} 
+
+A series of the form $\sum_{0}^{\infty} a_n(z-z_0)^n$ ($a_n,z,z_0\in \mathds{C}$; $z_0$ is center)
+
+\textbf{Theorem 3.1(Radius of convergence)}: Given a power series $\sum_{n=0}^{\infty} a_n(z)^n$,\\
+$\exists R\in [0,\infty) \cup \{\infty\}$ such that:
+\begin{enumerate}
+\item the series converges absolutely ($\forall z\in B(0,R)$; the disk of convergence)
+\item diverges $\forall z$ such that $|z|>R$ 
+\item \begin{equation} R=\frac{1}{\limsup |a_n|^{\frac{1}{n}}}\nonumber \end{equation}
+\end{enumerate}
+(Convention: $\frac{1}{0}=+\infty$ , $\frac{1}{\infty}=0$)\\
+\textbf{Proof}: Theorem 2.5 in Stein-Shakarchi Complex Analysis\\
+\vspace{2mm}
+\textbf{Theorem 3.2}: The power series $f(z)=\sum_{n=0}^{\infty} a_nz^n$ defines a holomorphic function (in its disk of convergence)\\
+Derivative of $f$ is obtained by differentiation of each term:\\
+$f^{'}(z)=\sum_{n=0}^{\infty} na_nz^{n-1}$ \\
+$f^{'}$ has same disk of convergence\\
+\textbf{Proof}: Theorem 2.6 in Stein-Shakarchi Complex Analysis\\
+\textbf{Remark}: A power series is infinitely differentiable (analytic) in its disk of convergence\\  
+$\Rightarrow$ \hspace{40mm}$ \begin{aligned} f(z)=\sum_{}^{}a_nz^n =\sum_{k=0}^{\infty} \frac{f^{k}(0)}{k!} z^k \nonumber\\ \end{aligned}$
+\\
+\vspace{3mm}
+\textbf{Proposition 3.2}: Let $\Omega_1,\Omega_2 \subset \mathds{C}$ be domains and let $f:\Omega_1\rightarrow \mathds{C}$,
+$g:\Omega_2\rightarrow \mathds{C}$ be continuous function such that $f(\Omega_1)\subseteq \Omega_2$ and that $g(f(z))=z$ ($\forall z\in \Omega_1$).
+If $g$ is differentiable on $\Omega_2$ and if $g^{'}(w)\neq 0$ ($\forall w \in \Omega_2$), then $f$ is differentiable and $f^{'}(z)=\frac{1}{g^{'}(f(z))}$ ($\forall z\in \Omega_1$)
+
+\textbf{Proof (Sketch)}: Use the differentiability of $g$ and the continuity of $f$ to get the result \\
+\vspace{3mm}
+\textbf{Theorem 3.3}: A branch of logarithm is analytic and its derivative is $\frac{1}{z}$.
+
+\textbf{Proof (Sketch)}: Let $f$ be a branch of log. Define $g(z)=e^z$. Then $g(f(z))=z$. ($e^{f(z)}=z$)\\
+\vspace{3mm}
+\textbf{Lemma 3.1}: Let $f:\Omega \rightarrow \mathds{C}$. Then $f$ is differentiable at $z_0\in \Omega$ iff $\exists a\in \mathds{C}$ such that 
+
+$f(z_0+h)-f(z_0)= ah+h\psi(h)$ ($\lim_{h \to 0} \psi(h)=0$)
+
+\textbf{Proof}: Use the definition of differentiability of a multivariable function\\
+\vspace{3mm}
+\textbf{Theorem 3.4}: Let $\Omega \subset \mathds{C}$ be a domain and let $f=u+iv$ is a function from $\Omega$ to $\mathds{C}$.
+Then $f$ is analytic at $z_0\in \Omega$ iff the partial derivatives exist, are continuous and satisfy Cauchy-Riemann equations.
+
+\textbf{Proof(To complete)}: $\Rightarrow$ If $f$ is analytic at $z_0$, then partial derivatives are continuous and satisfy the Cauchy-Riemann equations (follows from theorem 3.2)
+
+$\Leftarrow$ Let $\tilde{f}:\Omega \subseteq \mathds{R}^2\rightarrow \mathds{R}^2$ be defined as $\tilde{f}=(u,v)$
+
+$\tilde{f}$ is differentiable at $z_0=(x_0,y_0)$\\
+\vspace{3mm}
+\textbf{Definition}: For domain $\Omega$, $H(\Omega)$ is the collection of all analytic functions from $\Omega \rightarrow \mathds{C}$
+
+\textbf{Proposition 3.3}: Let $f:\Omega\subseteq \mathds{C} \rightarrow \mathds{C}$ such that $f\in H(\Omega)$. If $D$ is a disk with center at $z_0\in \Omega$ and if $\bar{D}\subseteq \Omega$, then $f$ has a power series:
+\begin{align}
+f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n \:\:(\forall z\in D) \nonumber\\
+\text{where}\: a_n=\frac{f^{(n)}(z_0)}{n!}\text{,}\:\: (n\in \mathds{N})\nonumber
+\end{align}
+\textbf{Proof (Sketch)}: Differentiate the power series repeatedly (Use Theorem 3.2)
+
+\textbf{Examples}: 
+\begin{enumerate}
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} nz^n <\infty \end{aligned}$ \: (converges $\forall z \in B(0,1)$; doesn't converge for $|z|=1$) 
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} \frac{z^n}{n^2} <\infty \end{aligned}$ \:(converges $\forall z\in B(0,1)$; converges for $|z|=1$)
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} \frac{z^n}{n} <\infty \end{aligned}$ \:(converges for $|z|<1$; diverges otherwise)
+\item $f(z)=e^z \Rightarrow f^{'}(z)=e^z$ (by definition of $e^z$)\\
+Consider $\begin{aligned}[t] g(z)=\sum_{n=1}^{\infty} \frac{z^n}{n!}\end{aligned}$ \\
+$g(z)$ is an entire function (Why?)\\
+Note that $\begin{aligned}[t] f^{(k)}(0)=1\Rightarrow a_k=\frac{f^{(k)}(0)}{k!}=\frac{1}{k!}\Rightarrow f(z)=g(z) \end{aligned}$
+\end{enumerate}
+\clearpage
+
+\section{Complex integration}
+
+A \textbf{path} or a \textbf{curve} is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
+($Rng(\gamma)\subset \mathds{C}$) 
+
+$\gamma(a)$: initial point of path; $\gamma(b)$: endpoint of path
+
+$[a,b]$: parameter interval 
+
+$\gamma$ is said to be:
+\begin{enumerate}
+    \item closed if $\gamma(a)=\gamma(b)$
+    \item smooth or $C^1$ if $\gamma$ is differentiable and $\gamma^{'}$ is continuous
+    \item simple if $\gamma$ is one-one
+    \item simple closed if $\gamma(a)=\gamma(b)$ and $\gamma$ is one-one on $(a,b)$
+    \item piecewise smooth if there are finitely many points $s_0,s_1 \dots s_n\in [a.b]$ with $a=s_0<s_1<s_2 \dots <s_n=b$ such that the restriction of $\gamma$ to each $(s_i,s_{i+1})$ is smooth.
+
+\end{enumerate}
+
+$-\gamma$ or $\gamma^{-1}$ is defined by $\gamma^{-1}(t)=\gamma(a+b-t)$
+
+$\upphi:[0,1]\rightarrow [a,b]$ defined as: $\upphi(t)=a+(b-a)t$ (one-one and differentiable)
+
+\subsection{\textbf{Line integral}} 
+
+$f:[a,b]\rightarrow \mathds{C}$ : continuous
+
+$f=u+iv$, where $u,v:[a,b]\rightarrow \mathds{R}$
+
+Define $\int_{a}^{b}f(t) dt= \int_{a}^{b}u(t) dt+ i \int_{a}^{b} v(t) dt$
+
+\textbf{Properties}:
+
+\begin{enumerate}
+    \item $\int_{a}^{b} c.f(t) dt= c.\int_{a}^{b}f(t) dt$
+    \item $| \int_{a}^{b}f(t) dt |\leq \int_{a}^{b}|f(t)| dt$
+\end{enumerate}
+\textbf{Length of a smooth curve}: Let $\gamma:[a,b]\rightarrow \mathds{C}$ be a smooth curve. 
+
+$L(\gamma)= \int_{a}^{b} |\gamma^{'}(t)| dt$
+$=\int_{a}^{b} \sqrt{\gamma_1^{'}(t)^2+\gamma_2^{'}(t)^2}  dt$     \: ($\gamma(t)=\gamma_1(t)+i.\gamma_2(t)$)
+
+If $\gamma:[a,b]\rightarrow C$ is piecewise smooth then $L(\gamma)$ is the sum of the length of its smooth parts.
+
+\textbf{Orientation}:  A curve $\gamma$ is \emph{positively} oriented if traversed in anti-clockwise direction else is \emph{negatively} oriented.
+
+\textbf{Examples}:
+\begin{enumerate}
+    \item $\gamma(t)=re^{it}$, ($t\in [0,2\pi]$) ($r>0$: simple, smooth curve); 
+    
+    $L(\gamma)=\int_{0}^{2\pi} |ire^{it}| dt= r(2\pi)$
+    
+    \item $\gamma(t)=e^{it}$, ($t \in [0,4\pi]$): closed, smooth, traverses the unit circle twice in the positive direction
+\end{enumerate}
+\textbf{Integration over paths}:
+$\gamma[a,b]\rightarrow \mathds{C}$ is a smooth curve and $f:\gamma \rightarrow \mathds{C}$: continuous 
+
+\textbf{Definiton}: $\int_{\gamma}^{} f(z) dz= \int_{a}^{b} f(\gamma(t)) \gamma^{'}(t) dt=\int_{a}^{b}g(t) dt$ 
+
+($g(t)=f(\gamma(t)) \gamma^{'}(t)$ where $g:[a,b]\rightarrow \mathds{C}$)
+
+Let $[a_1,b_1]$ be any closed interval. Then $\exists \upphi:[a_1,b_1]\rightarrow [a,b]$ (one-one,differentiable and $\upphi(a_1)=a;\upphi(a_2)=b$)
+
+$\upphi[a_1,b_1] \rightarrow \mathds{C}$: smooth 
+
+$\int_{a_1}^{b_1}f(\gamma_1(t)).\gamma_1^{'}(t)dt$ \: ($=\int_{\gamma_1}^{}f(z) dz$)
+
+$=\int_{a_1}^{b_1}f(\gamma(\upphi(t))).\upphi^{'}(t) dt$
+$=\int_{\gamma}^{} f(\gamma(s)) \gamma^{'}(s) ds=\int_{\gamma}^{}f(z) dz$ \: ($\upphi(t)=s$)
+
+If $\gamma$ is piecewise smooth, the integral can be split into the sum of its smooth components:
+
+if $\gamma=\gamma_1+\gamma_2 \dots +\gamma_n$, then $\int_{\gamma}^{} f = \int_{\gamma_1}^{} f + \dots + \int_{\gamma_n}^{} f$.
+
+Note that $\gamma_i's$ are smooth.
+
+\textbf{Proposition}: If $f$ and $g$ are continuous on a smooth curve $\gamma$, then 
+\begin{enumerate}
+    \item $\int_{\gamma}^{} \alpha f+\beta g = \alpha \int_{\gamma}^{} f + \beta\int_{\gamma}^{} g$
+    \item $\int_{\gamma^{-}}^{} f = - \int_{\gamma}^{} f$
+    \item $|\int_{\gamma}^{} f(z) dz| \leq \|f\|_{\infty,\gamma} \: L(\gamma)$ \: ($\|f\|_{\infty,\gamma}=sup_{z\in \{\gamma\}}|f(z)|$)
+\end{enumerate}
+
+$|\int_{\gamma}^{} f|= |\int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt| \leq \int_{\gamma}^{} |f(\gamma(t)).\gamma^{'}(t)| dt$
+$\leq \|f\|_{\infty,\gamma}\:  \int_{a}^{b} |\gamma^{'}(t)| dt$   \: ($L(\gamma)=\int_{a}^{b} |\gamma^{'}(t)| dt$)
+\textbf{Examples}: 
+
+(i)Let $\gamma$ be the arc of a circle of radius 3 ($|z|=3$) from $3$ to $3i$.
+
+Show that:
+
+$$|\int_{\gamma}^{} \frac{z+4}{z^3-1} dz| \leq \frac{21\pi}{52}$$
+
+(ii) $\gamma: |z|=2$  (traverse curve in positive direction)
+
+Prove: $$|\int_{\gamma}^{} \frac{e^z dz}{z^2+1} | \leq \frac{4\pi e^2}{3}$$
+\clearpage
+\textbf{Fundamental theorem of calculus}: 
+
+If $f:[a,b]\rightarrow \mathds{R}$ has a primitive F, then $\int_{a}^{b} f(x) dx =F(b)-F(a)$ \: ($F^{'}(x)=f(x), \forall x\in [a,b]$)
+
+\textbf{For complex case}: Suppose $G\in \mathds{C}$ be a domain. If a continuous function $f:G\rightarrow \mathds{C}$ has a primitive $F$ on $G$ and if $\gamma$ is a smooth curve in G with initial and terminal points $\omega_1$ and $\omega_2$ respectively, then:
+
+$\int_{\gamma}^{} f = F(\omega_1) - F(\omega_2)$
+
+\textbf{Proof}: Let $[a,b]\in \mathds{R}$ be a parameter interval for $\gamma$ and $\gamma(a)=\omega_1$; $\gamma(b)=\omega_2$
+
+Given $F^{'}(z)=f(z)$   ($\forall z \in G$)
+
+$$\int_{\gamma}^{} f = \int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt = \int_{a}^{b} F^{'}(\gamma(t))\gamma^{'}(t) dt$$
+
+$$= \int_{a}^{b} (F \circ \gamma)^{'}(t) dt = F \circ \gamma(b)-F \circ \gamma(a)= F(\omega_2)-F(\omega_1)$$
+
+\textbf{Corollary-1}: If $\gamma$ is a closed curve (smooth), then
+
+$\begin{aligned}[t] \int_{\gamma}^{} f =0\nonumber \end{aligned}$ 
+
+\textbf{Proof}: Follows from FTC
+
+\textbf{Corollary-2}: If $f\in H(\Omega)$ for a region $\Omega\in \mathds{C}$ and if $f^{'}=0$ on $\Omega$, then $f$ is a constant function.
+
+\textbf{Proof}: Fix a point $\omega_0\in \Omega$. It suffices to show that $f(\omega)=f(\omega_0), \forall \omega \in \Omega$
+
+\subsection{\textbf{Simple Closed Curve}}
+
+\textbf{Jordan-curve theorem}: Every simple closed curve in $\mathds{C}$ divides the complex plane into two regions. One of these regions is bounded and the other is unbounded. The bounded region is called the interior of the curve.
+
+\textbf{Example}: $G=\mathds{C}\setminus \{0\}$
+
+$f(z)=\frac{1}{z}$ on $G$, $\gamma: |z|=1$, $\gamma(t)=e^{it}$, ($t\in [0,2\pi]$)
+
+$$\int_{\gamma}^{} f= \int_{0}^{2\pi} f(\gamma(t)).\gamma^{'}(t) dt= \int_{0}^{2\pi} \frac{i.e^{it}}{e^{it}} dt =2\pi i\neq 0$$
+
+\textbf{Winding number or index of a closed curve}:
+Let $\gamma$ be a closed curve on $\mathds{C}$ and let $\alpha \in \mathds{C}\setminus \{\gamma\}$. The winding number of $\gamma$ about $\alpha$ or the index of $\gamma$ with respect to $\alpha$ is denoted by,
+$\eta(\gamma;\alpha)/Ind_{\gamma}(\alpha)$ defined by:
+
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{}\frac{dz}{z-\alpha}$$
+
+\textbf{Example}: $\gamma: [0,6\pi]\rightarrow \mathds{C}$ 
+
+$\gamma(t)=a+re^{it}$ 
+
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{\gamma^{'}(t)}{\gamma(t)-a}=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{1}{a+re^{it}-a}.ire^{it} dt=3$$
+
+\textbf{Theorem 4.1}: Let $\gamma$ be a smooth, closed curve in $\mathds{C}$. Let $\alpha\in \mathds{C}\setminus \{\gamma\}$. Then $\eta(\gamma;\alpha)\in \mathds{Z}$.
+
+\textbf{Proof}: $\upphi:[0,1] \rightarrow \mathds{C}$
+
+$\begin{aligned}[t] \upphi= \frac{\gamma^{'}(s)}{\gamma(s)-\alpha} \end{aligned}$ and $g:[0,1]\rightarrow \mathds{C}$, $\begin{aligned}[t]g(t)=\int_{0}^{t} \upphi(s) ds\end{aligned}$
+
+$g(0)=0$ and $\begin{aligned}[t] g(1)=\int_{0}^{1} \upphi(s) ds= \int_{0}^{1} \frac{\gamma^{'}(s)}{\gamma-\alpha} ds= \int_{\gamma}^{} \frac{dz}{z-\alpha} \end{aligned}$\\
+\vspace{2mm}
+\textbf{Claim}: $\begin{aligned}[t] g^{'}(t)=\upphi(t) \end{aligned}$
+
+Proof: To show that $\begin{aligned}[t] \lim_{h \to 0}\frac{g(t+h)-g(t)}{h}-\upphi(t)=0 \end{aligned}$
+
+$\begin{aligned}[t] \frac{g(t+h)-g(t)}{h}-\upphi(t)=\frac{1}{h}\int_{t}^{t+h}[\upphi(t+h)-\upphi(t)] ds \end{aligned}$ \:(for $h>0$, similar for $h<0$)
+
+Since $\upphi$ is uniformly continuous on $[0,1]$, $\forall \epsilon >0$, $\exists \delta>0$ such that 
+
+$|s-t|<\delta \Rightarrow |\upphi(s)-\upphi(t)|<\epsilon$ 
+
+If $h<\delta$, then
+
+$\begin{aligned}[t] |\frac{1}{h}\int_{t}^{t+h}[\upphi(t+h)-\upphi(t)]ds|\leq \frac{1}{h}\int_{t}^{t+h}|\upphi(t+h)-\upphi(t)| ds<\epsilon \end{aligned}$
+
+Same thing holds if $h<0$
+
+Therefore, $\begin{aligned}[t] h<\delta \Rightarrow |\frac{g(t+h)-g(t)}{h}-\upphi(t)|<\epsilon \end{aligned}$
+
+Hence, $g^{'}=\upphi$
+
+Set $\begin{aligned}[t] h(t)=e^{-g(t)}(\gamma(t)-\alpha)\end{aligned}$
+
+We have, $\begin{aligned}[t] h^{'}(t)=e^{-g(t)}\gamma^{'}(t)-e^{-g(t)}(\gamma(t)-\alpha)g^{'}(t)=0\end{aligned}$
+
+Hence, $h(t)$ is a constant function.
+\begin{align}
+&e^{-g(0)}(\gamma(0)-\alpha)=e^{-g(1)}\:\:(\gamma(1)-\alpha)\nonumber \\
+\Rightarrow &e^{-g(0)}=e^{-g(1)}=1 \:\:(\text{As $\gamma$ is a closed curve})\nonumber
+\end{align}
+hence $g(1)=2k\pi i$ (for $k\in \mathds{Z}$)
+
+\clearpage
+
+Therefore, $\begin{aligned}[t] \int_{\gamma}^{}\frac{dz}{z-\alpha}=2k\pi i\Rightarrow \frac{1}{2\pi i}\int_{\gamma}^{}\frac{dz}{z-\alpha}=k\in \mathds{Z} \end{aligned}$ 
+
+Remark: The theorem is true if $\gamma$ is a closed contour. (Prove it!) \\(A contour is a piecewise smooth curve)\\
+\vspace{3mm}
+\textbf{Theorem 4.2}: Let $\gamma$ be a closed contour and let $\alpha \in \mathds{C}\setminus \{\gamma\}$. Then,
+
+(a) the function $f_{\gamma}: \mathds{C}\setminus \{\gamma\}\rightarrow \mathds{Z}$ is continuous. ($\alpha \rightarrow \eta(\gamma;\alpha)$)
+
+(b) $f$ is constant on every component of $\mathds{C}\setminus \{\gamma\}$
+
+\textbf{Proof}: (a) Let $\alpha_0 \in \mathds{C}\setminus \{\gamma\}$. Then the function $g:t \rightarrow |\alpha_0-\gamma(t)|$ is continuous.
+
+$g$ attains its infimum, say $\begin{aligned}[t] s=\inf_{t\in[0,1]} g(t)\end{aligned}$
+
+If $\alpha$ is very close to $\alpha_0$, then $\begin{aligned}[t]|\alpha-\gamma(t)|\geq \frac{s}{2}\end{aligned}$. Then,
+\begin{align}
+&|\frac{1}{z-\alpha}-\frac{1}{z-\alpha_0}|=\frac{|\alpha-\alpha_0|}{|z-\alpha||z-\alpha_0|}\leq \frac{2}{s^2}|\alpha-\alpha_0| \:\:(z\in \gamma)\nonumber\\
+&|f_{\gamma}(\alpha)-f_{\gamma}(\alpha_0)|\leq \frac{1}{2\pi i} \int_{\gamma}^{}|\frac{1}{z-\alpha}-\frac{1}{z-\alpha_0}| dz\nonumber\\
+&\hspace{25mm}\leq \frac{2}{s^2}|\alpha -\alpha_0|\frac{1}{2\pi i}\:L(\gamma)=M(\alpha-\alpha_0) \:\: (\text{Lipschitz continuous $\Rightarrow$ continuous})\nonumber
+\end{align}
+(b) Let $V$ be a component, then $f(V)$ is connected in $\mathds{Z}\Rightarrow f(V)$ is a constant $\in \mathds{Z}$
+
+\textbf{Proposition 4.1}: Let $\gamma$ be a closed contour in $\mathds{C}$. Then $\eta(\gamma;\alpha)=0$ $\forall \alpha$ in the unbounded component of $\mathds{C}\setminus \{\gamma\}$
+
+\textbf{Proof}: Since $\gamma$ is closed and bounded, $\{\gamma\}\subseteq \bar{B}(0;R)$ for some $R>0$.
+
+Let $\alpha \in\mathds{C}\setminus \bar{B}(0;R)$ 
+
+$|z-\alpha|\geq |\alpha|-|z|\geq |\alpha-R|$
+
+$\begin{aligned}[t] |\eta(\gamma;\alpha)|=\frac{1}{2\pi}|\int_{\gamma}^{}\frac{dz}{z-\alpha}| \leq \frac{1}{2\pi} \int_{\gamma}^{}\frac{dz}{|z-\alpha|}\leq \frac{1}{2\pi} \frac{1}{|\alpha|-R}\:L(\gamma)\end{aligned}$
+
+One can find a large enough $|\alpha|$ to make $\eta(\gamma;\alpha)<1$
+
+Hence, $\eta(\gamma;\alpha)=0$, when $|\alpha|$ is sufficiently large 
+
+Since, $\eta(\gamma;\alpha)$ is constant within a component, $\eta(\gamma,\beta)=0 \:\:(\forall \beta$ in unbounded component)
+
+\textbf{Proposition 4.2}: Let $\gamma$ be a closed contour consisting of curves $\gamma_1,\dots \gamma_n$.Then,
+
+$\eta(\gamma;\alpha)=\eta(\gamma_1;\alpha)+\dots +\eta(\gamma_n;\alpha)$ (Prove!)
+
+\textbf{Cauchy-Goursat theorem}: Let $\Omega\subseteq \mathds{C}$ be a domain and let $f\in H(\Omega)$. Then for any closed contour $\gamma$ lying in the interior of $\Omega$,
+
+$\int_{\gamma}^{} f(z) dz=0$
+
+\textbf{Proof}: Step-I (Goursat's theorem): 
+
+When $\gamma=T$, a triangle
+
+Let $T^{(0)}=T$
+
+Let $diam(T^{(0)})=d^{(0)}$ and $peri(T^{(0)})=p^{(0)}$
+
+%figure
+
+$\int_{T^{(0)}}^{} f(z) dz =\int_{T^{(1)}}^{} f(z) dz + \int_{T^{(2)}}^{} f(z) dz + \int_{T^{(3)}}^{} f(z) dz + \int_{T^{(4)}}^{} f(z) dz$
+
+$|\int_{T^{(0)}}^{} f(z) dz| \leq 4|\int_{T^{(j)}}^{} f(z) dz|$ (for some $j\in \{1,2,3,4\}$)
+
+Call this $T^{(j)}$ to be $T^{(1)}$ (suppose)
+
+$diam(T^{(1)})=\frac{1}{2}diam(T^{(0)})$ 
+
+$d^{(1)}=\frac{d^{(0)}}{2}$ and $p^{(1)}=\frac{p^{(0)}}{2}$
+
+Do the same process with $T^{(1)}$ to get $T^{(2)}\Rightarrow |\int_{T^{(1)}}^{} f(z) dz| \leq 4|\int_{T^{(2)}}^{} f(z) dz|$ 
+
+Continuing, $|\int_{T^{(0)}}^{} f(z) dz| \leq 4^n|\int_{T^{(n)}}^{} f(z) dz|$ 
+
+$d^{(n)}=\frac{d^{(0)}}{2^n}$ and $p^{(n)}=\frac{p^{(0)}}{2^n}$
+
+$\triangle_n= T^{(n)} \cup Int(T^{(n)})$ (Int refers to interior of triangle)
+
+$\triangle_0\supseteq \triangle_1 \supseteq \dots \triangle_n\supseteq \dots$ (nested compact sets)
+
+$d^{(n)}$ tends to $0$
+
+Therefore, $\exists!z_0 \in \overset{\infty}{\underset{n=0}{\bigcap}} \triangle_n$
+
+$f$ is holomorphic at $z_0$
+
+$f(z_0+h)-f(z_0)=hf^{'}(z_0)+h\psi(h)$ ($\lim_{h \to 0}\psi(h)=0$)
+
+So, $f(z)-f(z_0)=(z-z_0)f^{'}(z_0) + (z-z_0)\psi_1(h)$ where $\lim_{z \to z_0}\psi_1(z)=0$
+
+$\Rightarrow \int_{T}^{} f(z) dz= \int_{T}^{} f(z_0) dz + \int_{T}^{} (z-z_0)f^{'}(z_0) dz + \int_{T}^{} (z-z_0)\psi_1(z) dz= \int_{T}^{} (z-z_0)\psi_1(z) dz$
+
+Then, $\psi_1(z)= \frac{f(z)-f(z_0)}{z-z_0}-f^{'}(z_0)$
+
+Let $\sup_{z\in T^{(n)}}|\psi_1(z)|= E_n$ ($E_n\rightarrow 0$ as$\rightarrow \infty$)
+
+$|\int_{T^{(n)}}^{} f(z) dz|=|\int_{T^{(n)}}^{} (z-z_0)\psi_1(z) dz|\leq \int_{T^{(n)}}^{} |z-z_0||\psi_1(z)| dz$
+
+$\leq d^{(n)}E_np^{(n)}=\frac{d^{(0)}p^{(0)}}{4^n}E_n$
+
+$|\int_{T^{(0)}}^{} f(z) dz|\leq 4^n|\int_{T^{(n)}}^{} f(z) dz|\leq d^{(0)}p^{(0)}E_n$ ($\forall n$)
+
+Take limit on both sides as $n\rightarrow \infty\Rightarrow |\int_{T^{(0)}}^{} f(z) dz|=0$ \\
+%U missed Sunday notes%
+
+
+\textbf{Cauchy's Integral Formula for derivatives}: Let $\gamma$ be a simple closed contour and let $z_0\in Int(\gamma)$. If $f$ is holomorphic on and inside $\gamma$, then $f$ is infinitely differentiable at any point in $Int(\gamma)$ and\\
+\begin{equation*}
+    f^{(n)}(z_0)=\frac{n!}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{(z-z_0)^{n+1}} dz
+\end{equation*}
+\textbf{Proof}: For n=0, the conclusion is true (by Cauchy's Integral formula)\\
+Suppose it holds for $k=n-1$. Then,\\
+\begin{equation*}
+    \begin{split}
+    &f^{(n-1)}(z_0)=\frac{(n-1)!}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{(z-z_0)^n} dz\\
+    &\lim_{h \to 0} \frac{f^{n-1}(z_0+h)-f^{n-1}(z_0)}{h}\\
+    &\lim_{h \to 0} \frac{(n-1)!}{2\pi i}\int_{\gamma}^{} f(z).\frac{1}{h}[\frac{1}{(z-z_0-h)^n}-\frac{1}{(z-z_0^n)}] dz\\
+    &\lim_{h \to 0} \frac{(n-1)!}{2\pi i}\int_{\gamma}^{} \frac{f(z)}{(z-z_0-h)(z-z_0)}[A^{n-1}+A^{n-2}B+\dots +B^{n-1}] \:\:(\text{where})
+    \end{split}
+\end{equation*}
+\textbf{Cauchy's estimate}: Let $f$ be analytic on and inside a simple circle $\gamma: |z-z_0|=r$ and let $|f(z)|\leq M \:\:\forall z\in \{\gamma\}$. Then,\\
+\begin{equation*}
+    |f^{(n)}(z_0)|\leq \frac{n!M}{r^n}
+\end{equation*}
+\textbf{Proof}: \begin{equation*}
+    \begin{split}
+        |f^{(n)}(z_0)|&\leq \frac{n!}{2\pi}\int_{\gamma}^{} |\frac{f(z)}{(z-z_0)}| dz \\
+        & \frac{n!}{2\pi}.\frac{M}{r^{n+1}}2\pi r=\frac{n!M}{r^n}
+    \end{split}
+\end{equation*}
+\textbf{Liouville's theorem}: A function which is entire and bounded is a constant function.
+\textbf{Proof}: Let $f$ be an entire function with $|f(z)|\leq M \:\:\forall z\in\mathds{C}$\\
+$|f^{'}(z_0)|\leq \frac{M}{R} < \epsilon$, for given $\epsilon>0$ when $R$ is sufficiently large.\\
+Therefore, $f^{'}(z_0)=0$\\
+\textbf{Theorem}: Let $\Omega\subseteq \mathds{C}$ be a domain and let $f\in H(\Omega)$. If $D$ is a disk centered at $z_0\in \Omega$ such that $\bar{D}\subseteq \Omega$, then $f$ has a power series\\
+\begin{equation*}
+    \begin{split}
+        &f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n\text{,}\:\: \forall z\in D\\
+        &\text{where}\:\:\: a_n=\frac{f^{(n)}(z_0)}{n!}\text{,} \:\: \forall n=0,1,2,\dots
+    \end{split}
+\end{equation*}
+\textbf{Proof}:Fix $z\in D$\\
+\begin{equation*}
+ f(z)=\frac{1}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{w-z} dw \:\: \gamma=\partial D
+\end{equation*}
+\begin{equation*}
+    \frac{1}{w-z}=\frac{1}{(w-z_0)-(z-z_0)}=\frac{1}{w-z_0}.\frac{1}{1-\frac{z-z_0}{w-z_0}}
+\end{equation*}
+$\exists\in (0,1)$ such that \\
+\begin{equation*}
+    \begin{split}
+        &|\frac{z-z_0}{w-z_0}|<r<1
+    \end{split}
+\end{equation*}
+%Couldn't complete proof
+%Example Questions (2)
+Prove that for every non-constant polynomial with complex coefficients has a root in $\mathds{C}$ (A continuous function is bounded inside a disk)\\
+Every monic polynomial $p(z)$ with degree n ($\geq 1$) has precisely $n$ roots in $\mathds{C}$. If the roots are $z_1,z_2\dots z_n \in \mathds{C}$, then $p(z)= (z-z_1)\dots(z-z_n)$.\\
+ 
+
+\end{flushleft}
+\end{document}
