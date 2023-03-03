@@ -1,0 +1,123 @@
+\chapter{NotAssigned}
+\textbf{Morera's theorem}: \\
+Suppose $f$ is continuous complex-valued function on a domain $\Omega\subseteq \mathbb{C}$ such that \\
+$\int_{T}^{} f(z) dz =0$ for all triangles $T\subseteq\Omega$\\
+Then, $f\in H(\Omega)$\\
+Proof: Let $D\subseteq \Omega$ be any arbitrary disk. Then $\int_{T}^{} f(z) dz=0$, $\forall T\subseteq D$. Following the proof of Cauchy-Goursat Theorem for a disk, we have that,\\
+$f$ has a primitive in $D$.\\
+$F^{'}(z)=f(z)$, $\forall z\in D$\\
+Thus $f\in H(D)$.\\
+Since $\Omega$ is a union of such disks, we can conclude.
+\textbf{Theorem}: Let $\Omega \subseteq \mathbb{C}$ be a region and let $f_n\in H(\Omega)$, $\forall n\in \mathbb{N}$. If $f_n$ converges uniformly to $f$ on every compact subset of $\Omega$, then $f\in H(\Omega)$\\
+Also, {$f_n^{'}$} converges to $f^{'}$ uniformly on all compact subsets of $\Omega$.\\
+Proof: Let $D\subseteq \Omega$ be a disk such that $\bar{D}\subseteq \Omega$. Then,\\
+$\int_{T}^{} f_n(z) dz=0$ for all triangle $T\subseteq D$ (by Cauchy Goursat theorem)\\
+Since $f_n \rightarrow f$ uniformly,\\
+$\lim_{n \to \infty} \int_{T}^{} f_n(z) dz = \int_{T}^{}\lim_{n \to \infty} f_n(z) dz = \int_{T}^{} f(z) dz$\\
+$\Rightarrow \int_{T}^{} f(z) dz=0$ \\
+$\Rightarrow f\in H(D)$ (by Morera's theorem)\\
+To show $f_n^{'}\rightarrow f$ uniformly, consider $g_n^{'}=f_n^{'}-f$ and use Cauchy's theorem for $g_n^{'}$.\\
+\textbf{The Identity Theorem}: Let $\Omega \subseteq \mathbb{C}$ be a region and let $f\in H(\Omega)$. If {$\omega_n$} is a sequence of distinct points on $\Omega$ such that $f(\omega_n)=0$, $\forall n\in \mathbb{N}$ and if {$w_n$} has a limit point in $\Omega$, then $f=0$ on $\Omega$\\
+Proof: Let $z_0\in \Omega$ be a limit point of {$\omega_n$}. Let $D\subseteq \Omega$ be a disk with centre at $z_0$. Since $f\in H(\Omega)$, $f$ has a power series in $D$.\\
+$f= \sum_{0}^{\infty} a_n(z-z_0)^n$\\
+$f(z_0)=a_0=0$ (by the continuity of $f$, $\omega_n\rightarrow z_0$ and $f(\omega_n)=0$)\\
+$f(z)=\sum_{1}^{\infty} a_n(z-z_0)^n$\\
+Let $f\neq 0$ on $D$.\\
+Then $\exists n_0\in \mathbb{N}$ such that $a_{n_0}\neq 0$\\
+Let $m\in \mathbb{N}$ be the least positive integer such that $a_m\neq 0$. Then,\\
+$f(z)= a_m(z-z_0)^m[1+\frac{a_{m+1}}{a_m}(z-z_0)+\dots]= a_m(z-z_0)^m[1+g(z-z_0)]$ (where $g(z-z_0)$ goes to $0$ as $z\rightarrow z_0$)\\
+Since {$\omega_n$} is a sequence of distinct points, $\exists k\in \mathbb{N}$ such that $|g(\omega_k-z_0)|<1$ and $\omega_k \neq z_0$\\
+Therefore, $g(\omega_k-z_0)\neq -1$\\
+Now, $f(\omega_k)=a_m(\omega_k-z_0)^m[1+g(\omega_k-z_0)]$\\
+$\Rightarrow$ $LHS=0$ and $RHS\neq 0$, contradiction. \\
+We conclude $f=0$ on $D$.\\
+Let $Z(f)= \{z\in \Omega: f(z)=0\}\subseteq \Omega$\\
+Let $G$ be the interior of $Z(f)$.\\
+Then, $G\neq \upphi$ as $D\subseteq G$. We will show $G$ is closed.\\
+Let $y_0$ be a limit point of $G$. Then there is a sequence of distinct points $\{y_n\}\subseteq G$ such that $\lim_{n \to \infty} y_n=y_0$\\
+$\{y_n\}\subseteq G\subseteq Z(f)\Rightarrow y_0\in Z(f)\subseteq \Omega$\\
+Since $\Omega$ is open, $y_0\in \Omega$ is an interior point of $\Omega$ and thus $\exists$ disk $D(y_0;r)\subseteq \Omega$.\\
+Then there is a subsequence $\{y_{n_k}\}$ of $\{y_n\}$ such that  $\{y_{n_k}\} \subseteq D(y_0;r)$ and $y_{n_k}\rightarrow y_0$.\\
+Since $f(y_{n_k})=0$, $\forall n_k$ by the previous part $f=0$ on $D(y_0;r)$\\
+Then, $D(y_0;r)\subseteq G$ and thus $y_0$ is an interior point of $G$. So $y_0\in G$ and $G$ is closed.\\
+$G\subseteq \Omega$ (both open and closed)\\
+$G=\Omega=Z(f)\Rightarrow f=0$ on $\Omega$\\
+\textbf{Corollary}: Let $f$ and $g$ belong to $H(\Omega)$, $\Omega$ is a domain and let $f(z)=g(z)$, $\forall z\in \{\omega_n\}\subseteq \Omega$, where $\{\omega_n\}$ is a sequence of distinct points having a limit point in $\Omega$.\\
+Then, $f=g$ on $\Omega$\\
+\textbf{Theorem}: Let $\Omega$ be a domain and let $f\in H(\Omega)$ not be identically zero. Then corresponding to every zero $\alpha$ of $f$, there is a unique positive integer $m$ and a unique $g\in H(\Omega)$ such that \\
+$f(z)= (z-\alpha)^mg(z)$, where $g(z)\neq 0$ in a neighbourhood of $\alpha$.\\
+Proof: Since $f\neq 0$ on $\Omega$, there is a disk $D$ centred at $\alpha$ such that $D\subseteq \Omega$ and $f(z_0)\neq 0$, $\forall z\in D\setminus\{\alpha\}$\\
+$f(z)= \sum_{1}^{\infty} a_n(z-z_0)^n$, $z\in D$ ($a_0=f(\alpha)=0$)\\
+Since $f\neq 0$ on $D$, there is a positive integer $m$ such that $a_m\neq 0$ and $a_0=a_1=\dots =a_{m-1}=0$\\
+Then, $f(z)=(z-\alpha)^m[a_m+a_{m+1}(z-\alpha)+\dots]$\\
+Let $g(z)= a_m+a_{m+1}(z-\alpha)+\dots$  ($z\in D$)\\
+$g\in H(D)$
+Let us define $g$ on $\Omega$ by:
+$g(z)= \frac{f(z)}{(z-\alpha)^m}$ (for $z\neq \alpha$)\\
+$g(z)=a_m$ (for $z=\alpha$)\\
+We can conclude $g\in H(\Omega)$\\
+Let $f(z)=(z-\alpha)^mg(z)=(z-\alpha)^ph(z)$\\
+If $p>m$, then $g(z)=(z-\alpha)^{p-m} h(z)$ 
+At $\alpha$, $LHS=0$ and $RHS\neq 0$\\
+We can conclude uniqueness (complete proof)\\
+%Cauchy's thm(change): f is analytic ON and inside \gamma 
+%Include figure 
+\textbf{Lemma}: Let $E$ be the annular region determined by two closed contours $\gamma_1$ and $\gamma_2$ with $\gamma_2\subseteq Int(\gamma_1)$. If $f$ is analytic on $\bar{E}$, then for any point $z_0\in E$:\\
+$f(z_0)=\frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{z-z_0} dz - \frac{1}{2\pi i}\int_{\gamma_2}^{} \frac{f(z)}{z-z_0}$ ($\gamma_1$ and $\gamma_2$ have positive orientation)\\
+\textbf{Theorem(Laurent)}: Let $f$ be analytic on the closure of an annular region $E=\{z\in \mathbb{C}: r<|z-z_0|<R\}$. Then,
+\begin{equation*}
+    f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n + \sum_{n=1}^{\infty} b_n(z-z_0)^{-n}
+\end{equation*}
+where, $a_n=\frac{1}{2\pi i} \int_{\gamma}^{} \frac{f(z)}{(z-z_0)^{n+1}} dz$ and $b_n= \frac{1}{2\pi i} \int_{\gamma}^{} \frac{f(z)}{(z-z_0)^{-n+1}} dz$ ($\forall n$)\\
+Here, $\gamma: |z-z_0|=\rho$ , $r\leq \rho R$\\
+Proof: Let $\alpha \in E$. Then by previous lemma, \\
+\begin{equation*}
+    f(\alpha)= \frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{z-\alpha} dz - \frac{1}{2\pi i}\int_{\gamma_2}^{} \frac{f(z)}{z-\alpha}
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+        \frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{z-\alpha} dz&= \frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{(z-z_0)-(\alpha-z_0)} dz \\
+        &=\frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{(z-z_0)[1-\frac{\alpha-z_0}{z-z_0}]} dz\\
+        &=\frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{(z-z_0)(1-\frac{1}{1-t})} dz   \:\: (t=\frac{\alpha-z_0}{z-z_0})\\
+        &=\frac{1}{2\pi i} \int_{\gamma_1}^{} \frac{f(z)}{z-z_0} (1+t+t^2\dots ) dz\\
+        &=\sum_{n=0}^{\infty} \frac{1}{2\pi i}\int_{\gamma_1}^{} \frac{f(z)}{z-z_0} t^n dz\\
+        &=\sum_{n=0}^{\infty} \frac{1}{2\pi i}\int_{\gamma_1}^{} \frac{f(z)(\alpha-z_0)}{(z-z_0)^{n+1}}  dz\\
+        &=\sum_{n=0}^{\infty} a_n (\alpha-z_0)^n
+    \end{split}
+\end{equation*}
+%Complete proof (b_n=a_(-n))
+%b_n evaluate to 0 if f is analytic on a disk 
+\textbf{Singularity}: A point $z_0\in \mathbb{C}$ is called a point of singularity of a function $f$ if $f$ is not analytic at $z_0$.\\
+%Isolated and non-isolated 
+Singularity can either be \emph{isolated} or \emph{non-isolated}. An \emph{isolated} singularity can either be \emph{removable} or \emph{non-removable}.\\
+\textbf{Definitions}: A singularity $z_0\in \mathbb{C}$ is said to be isolated singularity of $f$ if there exists a neighbourhood $N(z_0)$ of $z_0$ such that $f$ is analytic on $N(z_0)\setminus \{z_0\}$\\
+A singularity which is not isolated is called a non-isolated singularity.\\
+\begin{defn}[Removable and non-removable]
+    (i) A function $f$ has a removable singularity at $z_0$ if $z_0$ is an isolated singularity of $f$ and $f$ can be redefined at $z_0$ so that $f$ becomes analytic at $z_0$ i.e if \\
+    $\lim_{z\rightarrow z_0} f(z)=l\in \mathbb{C}$
+    (ii)  If $f_1$ and $f_2$ are analytic at $z_0$ with $f_1(z_0)\neq 0$ and $z_0$ is a zero of order $m$ then $f=\frac{f_1}{f_2}$ is said to have a \emph{pole} of order $m$ at $z_0$. A pole of order $1$ is called a \emph{simple} pole.\\
+    (iii) An isolated singularity which is neither removable nor a pole is called a \emph{essential} singularity.\\
+\end{defn}
+\textbf{Examples}: (i) Consider the function $f(z)= \frac{1-cos(z)}{z^2}$. At $z=0$, the function doesn't have a pole (since the numerator vanishes) but the point is a isolated removable singularity (Why?)\\
+(ii) $f(z)=e^{\frac{1}{z}}$, $z=0$ is an esential singularity. (Why?)\\
+\textbf{Theorem}: Let $z_0\in \mathbb{C}$ be an isolated singularity of $f$. Then $z_0$ is a removable singularity iff $\lim_{z\rightarrow z_0} (z-z_0) f(z)=0$\\
+Proof: Forward direction is trivial.\\
+For the converse, let $\lim_{z\rightarrow z_0} (z-z_0) f(z)=0$.\\
+We show that, $\lim_{z\rightarrow z_0} f(z)$ exists.\\
+$f$ is analytic in a deleted neighbourhood $N(z_0)\setminus \{z_0\}$\\
+Define $g$ on $N(z_0)$ by: \\
+$g(z)= (z-z_0)f(z)$ if $z\neq z_0$ otherwise $g(z)=0$\\
+$g$ is analytic in $N(z_0)\setminus \{z_0\}$. Since $f$ is analytic in $N(z_0)\setminus \{z_0\}$. \\
+Also, $\lim_{z\rightarrow z_0} g(z)=0$  (exists)\\
+Therefore, $g\in H(N(z_0))$\\
+Since $z_0$ is a zero of $g$, there is a unique $m\in \mathbb{N}$ and a unique $\upphi\in H(N(z_0))$ such that \\
+$g(z)=(z-z_0)^m\upphi(z)$ ($\upphi(z)\neq 0$ in $N(z_0)$)\\
+$\lim_{z\rightarrow z_0} f(z)=\lim_{z\rightarrow z_0} \frac{g(z)}{z-z_0}=\lim_{z\rightarrow z_0} \frac{(z-z_0)^m\upphi(z)}{(z-z_0)}= \lim_{z\rightarrow z_0} (z-z_0)^{m-1} \upphi(z)$\\
+\textbf{Theorem}: Let $z_0$ be an isolated singularity of $f$ and let \\
+$f(z)= \sum_{n=0}^{\infty} a_n(z-z_0)^n + \sum_{n=1}^{\infty} b_n(z-z_0)^{-n}$\\
+Then $z_0$ is a removable singularity iff $b_n=0$ ($\forall n\in \mathbb{N}$)
+Proof: $z_0$ is a removable singularity of $f$ \\
+$\Leftrightarrow \lim_{z\rightarrow z_0} (z-z_0) f(z)=0$\\
+$\Leftrightarrow $
+%Complete proof 
+%Add figures at appropriate places 

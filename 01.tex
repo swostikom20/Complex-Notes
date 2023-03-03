@@ -1,0 +1,57 @@
+\chapter{Branch of Log and Power function}
+$Arg: \mathds{C}\setminus \{0\} \rightarrow (-\pi,\pi]$\\
+$Log(z)=log(|z|)+i.Arg(z)$ (defined on $\mathds{C}\setminus \{0\}$)\\
+$Log(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$ as $Arg(z)$ is continuous on $\mathds{C}\setminus (-\infty,0]$\\
+\section{\textbf{Branch of Log}}
+\begin{defn}[Branch of Log]
+Let $G\subset \mathds{C}$ be a region. A continuous function $f:G\rightarrow \mathds{C}$ is called a branch of logarithm in $G$ if:
+\begin{equation*}
+e^{f(z)}=z \:\:(\forall z\in G) (\Rightarrow 0\notin G)
+\end{equation*}
+\end{defn}
+\begin{equation*}
+e^{Log(z)}=z \:\: (\forall z\in \mathds{C}\setminus \{0\})
+\end{equation*}
+But $Log(z)$ isn't continuous on $\mathds{C}\setminus\{0\}$\\
+Therefore, $Log(z)$ is a branch of log in $\mathds{C}\setminus (-\infty,0]$ 
+\begin{align}
+&f_k=Log(z)+2k\pi i\text{,}\:\: k\in \mathds{Z}\nonumber \\
+&e^{f_k(z)}=z \:\:\hspace{2mm}(\text{Each $f_k$ is a branch of log in G})\nonumber
+\end{align}
+\begin{restatable}[]{thm}{}\label{}
+Let $f:G\rightarrow \mathds{C}$ be a branch of log. Then $g:G\rightarrow \mathds{C}$ is a branch of log iff $g(z)=f(z)+2k\pi i$ (for some $k\in \mathds{Z}$)
+\end{restatable}
+\begin{proof}
+($\Rightarrow$) if $f$ is a branch of log, then so is $g$\\
+($\Leftarrow$) Let $g:G\rightarrow \mathds{C}$ be a branch of log. \\
+Then, (i) $g$ is continuous\\
+(ii) $e^{g(z)}=z$, $\forall z\in G$\\
+Since $f:G\rightarrow \mathds{C}$ is a branch of log, we have, \\
+(i) $f$ is continuous \\
+(ii)$e^{f(z)}=z$, $\forall z\in G$\\
+$e^{g(z)}=z=e^{f(z)}$ ($\forall z\in G$)\\
+$\Rightarrow g(z)=f(z)+ 2k(z)\pi i$ ($k$ depends on $z$)\\
+$k: G\subset \mathds{C}\rightarrow \mathds{Z}$\\
+$k(z)=\frac{1}{2\pi i}(g(z)-f(z))$ ($k$ is continuous)\\
+Since $G$ is connected, $Img(k)$ is connected  (subset of $\mathds{Z}$)\\
+$\Rightarrow k(z)$ is constant \\
+Hence, the claim follows.
+\end{proof}
+\begin{defn}[\textbf{Unit disk in $\mathds{C}$}]
+$D=\{z\in \mathds{C}: |z|< 1\}$
+\end{defn}
+$0\in D$, hence $D$ cannot be a branch of log. \\
+$D\setminus \{0\}$ isn't a branch of log. (Why?)\\
+$Log(z): \mathds{C}\setminus (-\infty,0]\rightarrow \mathds{C}$\\
+The half-line is called a branch-cut for any member of $\{Log(z)+2k\pi i: k\in \mathds{Z}\}$\\
+\textbf{Question}: How do you make a branch-cut to define a branch of $Log(z+i-1)$?
+\section{\textbf{Power functions}}
+\begin{defn}[Power function]
+Let $\alpha \in \mathds{C}$. We define $z^{\alpha}$ to be the multi-valued function:
+\begin{align} 
+z^{\alpha}=e^{\alpha log(z)}&= e^{\alpha(log(|z|)+ iarg(z))}\nonumber\\
+&= e^{\alpha(Log(z)+2k\pi i)}\nonumber\\
+&=e^{\alpha Log(z)}.e^{2\pi ik\alpha} \:\:(z\neq 0\text{,} \:k\in \mathds{Z})\nonumber
+\end{align}
+\end{defn}
+Let $\alpha=n \in \mathds{N}$. Then $z^{\alpha}=e^{nLog(z)}$ which is single-valued.

@@ -1,0 +1,300 @@
+\chapter{Cauchy Goursat Theorem}
+The Cauchy-Goursat Theorem, which as the name of the chapter suggests, is central to this chapter. So we begin by first stating the theorem itself. 
+\begin{restatable}[\textbf{Cauchy-Goursat}]{thm}{}\label{}
+If a function $f$ is analytic at all points interior to and on a simple-closed contour $C$ then
+	$\int_{{C}}^{{}} {f\left( z \right) } \: d{z} {} = 0$. 
+\end{restatable}	
+This theorem is rather hard to prove, so we will be building tools to deal with it for the remainder of the chapter.\\
+Before moving ahead, we would like to define what a \emph{simply connected} region is.
+\begin{defn}[\textbf{Simply-connected Region}]
+A domain $D$ is said to be \emph{simply connected} if every simple closed contour within it is encloses points of $D$ only. \\
+A domain $D$ is said to be \emph{multiply connected} if it is not simply connected. 
+\end{defn}
+A simple example for simply connected region would be $\mathds{C}$ itself. Any curve $\{\gamma\} \in \mathds{C}$ can only contain points of $\mathds{C}$ itself. \\
+Consider the space $\mathds{C}^* = \mathds{C} \setminus \{0\} $, it is multiply connected.
+
+\begin{center}
+		 
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp7089388061410618] 
+\draw  (218,223.2) -- (514,223.2)(247.6,27) -- (247.6,245) (507,218.2) -- (514,223.2) -- (507,228.2) (242.6,34) -- (247.6,27) -- (252.6,34)  ;
+%Shape: Polygon Curved [id:ds6075001286607652] 
+\draw   (204,186) .. controls (224,176) and (314,166) .. (294,186) .. controls (274,206) and (274,216) .. (294,246) .. controls (314,276) and (224,276) .. (204,246) .. controls (184,216) and (184,196) .. (204,186) -- cycle ;
+%Shape: Circle [id:dp9295466509908139] 
+\draw   (242.49,223.2) .. controls (242.49,220.38) and (244.78,218.09) .. (247.6,218.09) .. controls (250.42,218.09) and (252.71,220.38) .. (252.71,223.2) .. controls (252.71,226.02) and (250.42,228.31) .. (247.6,228.31) .. controls (244.78,228.31) and (242.49,226.02) .. (242.49,223.2) -- cycle ;
+
+% Text Node
+\draw (309,158.4) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+% Text Node
+\draw (406,45.4) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{C} \setminus \{0\}$};
+
+
+\end{tikzpicture}
+	\end{center}
+
+It is apparent that the curve contains $0 \not\in \mathds{C} \setminus \{0\}  $\\
+
+Let $\gamma_z:= \text{OAB}$. \\
+Define 
+$ F(z)  = \int_{\gamma_z}^{} f(z) \: d{z}$\\
+Then, we have, 
+
+
+
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Circle [id:dp4927592098027098] 
+\draw   (205,149) .. controls (205,75.55) and (264.55,16) .. (338,16) .. controls (411.45,16) and (471,75.55) .. (471,149) .. controls (471,222.45) and (411.45,282) .. (338,282) .. controls (264.55,282) and (205,222.45) .. (205,149) -- cycle ;
+%Straight Lines [id:da4582551222426777] 
+\draw    (338,149) -- (442,149) ;
+\draw [shift={(444,149)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9233857830894384] 
+\draw    (444,149) -- (443.03,81) ;
+\draw [shift={(443,79)}, rotate = 89.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da14858467044751889] 
+\draw    (391,149) -- (391,112) ;
+\draw [shift={(391,110)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (340,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle 0$};
+% Text Node
+\draw (446,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C$};
+% Text Node
+\draw (393,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle A$};
+% Text Node
+\draw (473,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle Re\ z$};
+% Text Node
+\draw (370,93) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle B$};
+% Text Node
+\draw (416,66) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle D$};
+
+
+\end{tikzpicture}
+	
+
+
+\end{center}
+
+Since $f$ is continuous at $z$, \\
+	$f\left( w \right)  = f\left( z \right)  + \phi\left( \omega \right), \omega \in \text{BD}$\\
+where $\lim_{w \to z} \phi(\omega) = 0$\\
+Therefore, $$\omega \to z, f(\omega) \to  f \left( z \right) $$ \\
+
+Since $g\left( \omega \right) = \omega$ is a primitive for 1,\\
+$\int_{{\text{BD}}}^{{}} {} \: d{\omega} {} = h$\\
+Therefore, (to complete proof)
+\begin{rem}
+\begin{enumerate}
+\item The above theorem holds if $f \in  H\left( D \right) $ where $D \subset \mathds{C}$ is any disk. 
+\item Let $\Omega \subset \mathds{C}$ be a disk in $\mathds{C}$ and if $f \in H\left( \Omega \right) $ then, \\
+	$\int_{{\gamma}}^{{}} {f\left( z \right) } \: d{z} {} = 0$\\
+	for any closed contour $\gamma \subset \Omega$
+\item If $A \subset \mathds{C}$ and $f$ is holomorphic on $A $ if there is an open set $A \subset U$ such that $f \in  H \left( U \right) $ \\
+\item If $\gamma$ is an closed contour then $f $ is said to be analytic on and inside $\gamma$ if $f \in H\left( U \right) $
+\end{enumerate}
+\end{rem}
+\begin{defn}[Simply-connected]
+A domain $\Omega \subset \mathds{C}$ is said to be \emph{simply connected} if for every simple closed curve $\gamma$ lying in $\Omega$,   $Int\left( \gamma \right) \subset \Omega$
+\end{defn}
+Let $f \in H\left( \Omega \right) , \Omega \subset \mathds{C}$ is simply connected and let $\alpha, \beta \in  \Omega$.\\
+Then the integral of $f$ along any contour joining $\alpha$	and $\beta$ is same.  
+Let $\gamma_1, \gamma_2$ be two distinct contours joining $\alpha, \beta$. Then, consider the path $\gamma = \gamma_1 + -\left( \gamma_2 \right) $. Then, we have that \\
+$\int_{{\gamma}}^{{}} {f\left( z \right) } \: d{z} {} = 0$ (By Cauchy-Goursat theorem)\\
+\vspace{2mm}
+Let $\gamma_1$ and $\gamma_2$ be two simple closed contours with same orientations such that $\left\{ \gamma_2 \right\} \subset Int\left( \gamma_1 \right) $. If a function is holomorphic in the closed contour region bounded by $\gamma_1$ and $\gamma_2$, then, 
+
+	\[
+	\int_{{\gamma_1}}^{{}} {f\left( z \right) } \: d{z} {} = \int_{{\gamma_2}}^{{}} {f\left( z \right) } \: d{z} {} 
+	.\] 
+
+
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Circle [id:dp02448716649342253] 
+\draw   (197,145.5) .. controls (197,69.56) and (258.56,8) .. (334.5,8) .. controls (410.44,8) and (472,69.56) .. (472,145.5) .. controls (472,221.44) and (410.44,283) .. (334.5,283) .. controls (258.56,283) and (197,221.44) .. (197,145.5) -- cycle ;
+%Shape: Polygon Curved [id:ds8654614936411351] 
+\draw   (296,102) .. controls (316,92) and (406,82) .. (386,102) .. controls (366,122) and (366,132) .. (386,162) .. controls (406,192) and (316,192) .. (296,162) .. controls (276,132) and (276,112) .. (296,102) -- cycle ;
+%Straight Lines [id:da9010536947679112] 
+\draw    (424,42) -- (387.07,100.31) ;
+\draw [shift={(386,102)}, rotate = 302.35] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Boxed Line [id:dp8382501059640968] 
+\draw    (352,185) -- (371.6,282.04) ;
+\draw [shift={(372,284)}, rotate = 258.58] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw   (355.33,189.67) .. controls (353.5,187.72) and (352.22,185.67) .. (351.48,183.49) .. controls (351.67,185.78) and (351.29,188.17) .. (350.37,190.69) ;
+\draw   (422.96,48.08) .. controls (423.32,45.42) and (424.1,43.14) .. (425.33,41.19) .. controls (423.67,42.78) and (421.57,44) .. (419.05,44.87) ;
+\draw   (254.25,36.63) .. controls (255.65,34.35) and (257.31,32.58) .. (259.22,31.31) .. controls (257.06,32.08) and (254.65,32.33) .. (251.98,32.1) ;
+\draw   (332.82,90.52) .. controls (330.98,92.46) and (329,93.85) .. (326.87,94.7) .. controls (329.14,94.39) and (331.55,94.63) .. (334.11,95.42) ;
+\draw   (369.78,136.26) .. controls (371.77,138.06) and (373.21,140) .. (374.12,142.11) .. controls (373.75,139.84) and (373.93,137.43) .. (374.64,134.85) ;
+
+% Text Node
+\draw (495,99) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \gamma _{1}$};
+% Text Node
+\draw (312,188) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \gamma _{2}$};
+% Text Node
+\draw (352,61) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle A$};
+% Text Node
+\draw (434,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle B$};
+% Text Node
+\draw (337.5,159.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C$};
+% Text Node
+\draw (407,271) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle D$};
+% Text Node
+\draw (478,175) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle E$};
+% Text Node
+\draw (176,164) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle F$};
+% Text Node
+\draw (256,113) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle G$};
+% Text Node
+\draw (403,162.4) node [anchor=north west][inner sep=0.75pt]    {$H$};
+
+
+\end{tikzpicture}	
+
+\end{center}
+
+
+\begin{restatable}[\textbf{Cauchy's Integral Formula}]{prop}{}\label{}
+	Let $\gamma$ be a simple closed contour, and let $z\in  Int\left( \gamma \right) $. If $f$ is analytic on and inside $\gamma$, then, \\
+		\[
+		f\left( z_0 \right)  = \frac{1}{2 \pi i} \int_{{\gamma}}^{{}} {\frac{f\left( z \right)}{z-z_0} } \: d{z} {}
+		.\] 
+\end{restatable}
+\begin{proof}
+Witout loss of generality, let $\gamma$ be  positively orineted. Since $f$ is continuous at $z_0$, $\forall \epsilon >0, \exists \delta >0$ such that, 
+
+	\[
+		|z - z_0| < \delta \implies |f\left( z \right) - f\left( z_0 \right)| < \epsilon 
+	.\] 
+
+	Set $\gamma_1:= |z-z_0| = r$, where $0<r<\delta$,    \hspace{5mm}(Simple Circle, positively oriented) 
+
+	The function $\frac{f\left( z \right) }{z-z_0}$ is analytic in the closed annular region bounded by $\gamma$ andd $\gamma_1$. Then, by the previous lemma, we have, 
+
+	\begin{equation*}
+        \begin{split}
+	\int_{{\gamma}}^{{}} {\frac{f\left( z \right) }{z-z_0}} \: d{z} {} = \\
+	\int_{{\gamma_1}}^{{}} {\frac{f\left( z \right) }{z-z_0}} \: d{z} {} 
+        \end{split}
+    \end{equation*}
+
+
+	Now, we can write the corresponding integral as follows:
+
+	\begin{equation*}
+	\int_{{\gamma_1}}^{{}} {\frac{f\left( z \right) }{z-z_0}} \: d{z} {}  = \int_{{\gamma_1}}^{{}} {\frac{f\left( z \right) - f\left( z_0 \right)  }{z-z_0}} \: d{z} {} + \int_{{\gamma_1}}^{{}} {\frac{f\left( z_0 \right) }{z-z_0}} \: d{z} {} 
+    \end{equation*}
+	Now, 
+	\begin{equation*}
+		|\int_{{\gamma_1}}^{{}} {\frac{f\left( z \right) - f\left( z_0 \right)  }{z-z_0}} \: d{z} {}| \le  \frac{\epsilon}{r}  (2 \pi r)  
+    \end{equation*}
+
+	Hence the first term vanishes as $\epsilon>0$ 
+
+	Now the second term is:
+
+	\[
+	\begin{split}
+		\int_{{\gamma_1}}^{{}} {\frac{f\left( z_0 \right) }{z-z_0}} \: d{z} {}  &= f\left( z_0 \right) \int_{{\gamma_1}}^{{}} {\frac{1}{z-z_0}} \: d{z} {} \\							&= f\left( z_0 \right) 2 \pi i 
+	\end{split}
+	.\] 
+
+	Hence, we have that 
+
+	
+	\[
+	\begin{split}
+		\frac{1}{2 \pi i}\int_{{\gamma}}^{{}} {f\left( z \right) } \: d{z} {} &= \int_{{\gamma_1}}^{{}} {f\left( z \right) } \: d{z} {} \\ 
+										      &=  \frac{f \left( z_0 \right)}{2 \pi i} 2 \pi i = f\left( z_0 \right)  \\
+	\end{split}
+	.\] 
+\end{proof}
+\begin{restatable}[\textbf{Cauchy's Integral Formula for derivatives}]{prop}{}\label{}
+Let $\gamma$ be a simple closed contour and let $z_0\in Int(\gamma)$. If $f$ is holomorphic on and inside $\gamma$, then $f$ is infinitely differentiable at any point in $Int(\gamma)$ and\\
+\begin{equation*}
+    f^{(n)}(z_0)=\frac{n!}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{(z-z_0)^{n+1}} dz
+\end{equation*}
+\end{restatable}
+\begin{proof}
+For $n=0$, the conclusion is true (by Cauchy's Integral formula)\\
+Suppose it holds for $k=n-1$. Then,\\
+\begin{equation*}
+    \begin{split}
+    &f^{(n-1)}(z_0)=\frac{(n-1)!}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{(z-z_0)^n} dz\\
+    &\lim_{h \to 0} \frac{f^{n-1}(z_0+h)-f^{n-1}(z_0)}{h}\\
+    &\lim_{h \to 0} \frac{(n-1)!}{2\pi i}\int_{\gamma}^{} f(z).\frac{1}{h}[\frac{1}{(z-z_0-h)^n}-\frac{1}{(z-z_0^n)}] dz\\
+    &\lim_{h \to 0} \frac{(n-1)!}{2\pi i}\int_{\gamma}^{} \frac{f(z)}{(z-z_0-h)(z-z_0)}[A^{n-1}+A^{n-2}B+\dots +B^{n-1}] \:\:(\text{where})
+    \end{split}
+\end{equation*}
+(to complete, refer to corollary 4.2 of stein-shakarchi for proof)
+\end{proof}
+\begin{restatable}[\textbf{Cauchy's estimate}]{prop}{}\label{}
+Let $f$ be analytic on and inside a simple circle $\gamma: |z-z_0|=r$ and let $|f(z)|\leq M \:\:\forall z\in \{\gamma\}$. Then,\\
+\begin{equation*}
+    |f^{(n)}(z_0)|\leq \frac{n!M}{r^n}
+\end{equation*}
+\end{restatable}
+\begin{proof}
+\begin{equation*}
+    \begin{split}
+        |f^{(n)}(z_0)|&\leq \frac{n!}{2\pi}\int_{\gamma}^{} |\frac{f(z)}{(z-z_0)}| dz \\
+        & \frac{n!}{2\pi}.\frac{M}{r^{n+1}}2\pi r=\frac{n!M}{r^n}
+    \end{split}
+\end{equation*}
+(to complete, refer to corollary 4.3 of stein-shakarchi for proof)
+\end{proof}
+\begin{restatable}[\textbf{Liouville's theorem}]{thm}{}\label{}
+A function which is entire and bounded is a constant function.
+\end{restatable}
+\begin{proof}
+Let $f$ be an entire function with $|f(z)|\leq M \:\:\forall z\in\mathds{C}$\\
+$|f^{'}(z_0)|\leq \frac{M}{R} < \epsilon$, for given $\epsilon>0$ when $R$ is sufficiently large.\\
+Therefore, $f^{'}(z_0)=0$
+\end{proof}
+\begin{restatable}[]{thm}{}\label{}
+Let $\Omega\subseteq \mathds{C}$ be a domain and let $f\in H(\Omega)$. If $D$ is a disk centered at $z_0\in \Omega$ such that $\bar{D}\subseteq \Omega$, then $f$ has a power series\\
+\begin{equation*}
+    \begin{split}
+        &f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n\text{,}\:\: \forall z\in D\\
+        &\text{where}\:\:\: a_n=\frac{f^{(n)}(z_0)}{n!}\text{,} \:\: \forall n=0,1,2,\dots
+    \end{split}
+\end{equation*}
+\end{restatable}
+\begin{proof}
+Fix $z\in D$\\
+\begin{equation*}
+ f(z)=\frac{1}{2\pi i}\int_{\gamma}^{}\frac{f(z)}{w-z} dw \:\: \gamma=\partial D
+\end{equation*}
+\begin{equation*}
+    \frac{1}{w-z}=\frac{1}{(w-z_0)-(z-z_0)}=\frac{1}{w-z_0}.\frac{1}{1-\frac{z-z_0}{w-z_0}}
+\end{equation*}
+$\exists\in (0,1)$ such that \\
+\begin{equation*}
+    \begin{split}
+        &|\frac{z-z_0}{w-z_0}|<r<1
+    \end{split}
+\end{equation*}
+(Refer to Theorem 4.4 of stein-shakarchi)
+\end{proof}
+%Couldn't complete proof
+%Example Questions (2)
+
+\textbf{Questions}:
+\begin{enumerate}
+\item Prove that every non-constant polynomial with complex coefficients has a root in $\mathds{C}$ \\(A continuous function is bounded inside a disk)\\
+\item Every monic polynomial $p(z)$ with degree $n$ ($\geq 1$) has precisely $n$ roots in $\mathds{C}$. If the roots are $z_1,z_2\dots z_n \in \mathds{C}$, then $p(z)= (z-z_1)\dots(z-z_n)$.\\
+\end{enumerate}

@@ -1,0 +1,138 @@
+\chapter{Differentiability and Power series}
+\section{\textbf{Differentiability}} 
+\begin{defn}
+Let $\Omega \subseteq \mathds{C}$ and $f: \Omega \rightarrow \mathds{C}$. Then $f$ is said to be differentiable at $z_0\in \Omega$ if,\\
+$f^{'}(z_0)= \lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$ exists 
+\end{defn}
+\begin{ex}
+$f(z)=\bar{z}$ isn't differentiable at any point in $\mathds{C}$.
+\end{ex}
+\begin{restatable}[]{prop}{}\label{}
+\textbf{Cauchy-Riemann equations}: Let $f:\Omega \rightarrow C$ be differentiable at $z_0=x_0+iy_0$. Then,\\
+$$\frac{\partial u}{\partial x}(x_0,y_0)=\frac{\partial v}{\partial y}(x_0,y_0)$$\\
+$$\frac{\partial u}{\partial y}(x_0,y_0)= -\frac{\partial v}{\partial x}(x_0,y_0)$$\\
+Further, $$f^{'}(z_0)= \frac{\partial u}{\partial x}(x_0,y_0)+i\frac{\partial v}{\partial x}(x_0,y_0)$$\\
+Note that the last equation only has partial derivatives wrt $x$.
+\end{restatable}
+\begin{proof}
+In the differential, approach the origin once through the real axis and and then the imaginary axis to get some equations  
+\end{proof}
+\begin{defn}[\textbf{Holomorphic/Analytic Function}]
+A function is said to be \textbf{holomorphic} or \textbf{analytic} at $z_0$ if it is differentiable in a neighbourhood of $z_0$. 
+If a function is analytic at a point, it is called a \emph{regular} point for the function 
+\end{defn}
+\begin{defn}[\textbf{Entire function}]
+If a function $f$ is analytic at every point in $\mathds{C}\Rightarrow f$ is entire.
+\end{defn}
+\begin{ex}
+\begin{enumerate}
+\item $f(z)\rightarrow$ polynomial in $\mathds{C}$ 
+\item$f(z)=\frac{1}{z}\rightarrow$ not an entire function (differentiable at every point on $\mathds{C}\setminus \{0\}$)
+\end{enumerate}
+\end{ex}
+\begin{restatable}[]{prop}{}\label{}
+If $f$ and $g$ are differentiable at $z_0\in \Omega \subset \mathds{C}$, then so are:\\
+(i)$f+g$, (ii)$fg$, (iii)$f/g$ ($g(z_0)\neq 0$)
+\end{restatable}
+\begin{proof}
+Trivial
+\end{proof}
+\begin{restatable}[\textbf{Chain Rule}]{thm}{}\label{}
+$f:\Omega \rightarrow U$, $g:U\rightarrow \mathds{C}$ are holomorphic at $z_0$ and $f(z_0)$ respectively.\\
+Then $g\circ f:\Omega\rightarrow \mathds{C}$ is holomorphic at $z_0$ and $(g\circ f)^{'}(z_0)=g^{'}(f(z_0)).f^{'}(z_0)$
+\end{restatable}
+\begin{proof}
+Let $h=(g\circ f)$ 
+\begin{equation*}
+\begin{split}
+h^{'}(z_0)&= \lim_{z \to z_0} \frac{g(f(z))-g(f(z_0))}{z-z_0} \\
+&=\lim_{z \to z_0} \frac{g(f(z))-g(f(z_0))}{f(z)-f(z_0)}.\frac{f(z)-f(z_0)}{z-z_0} \\
+&=\lim_{f(z) \to f(z_0)} \frac{g(f(z))-g(f(z_0))}{f(z)-f(z_0)}.\lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}=g^{'}(f(z_0))\:f^{'}(z_0) \:\:\:\: (\text{Using continuity of $f$}) 
+\end{split}
+\end{equation*}
+\end{proof}
+\section{\textbf{Power series}} 
+\begin{defn}[Power series]
+A series of the form $\sum_{0}^{\infty} a_n(z-z_0)^n$ ($a_n,z,z_0\in \mathds{C}$; $z_0$ is center)
+\end{defn}
+\begin{restatable}[\textbf{Radius of convergence}]{thm}{}\label{}
+Given a power series $\sum_{n=0}^{\infty} a_n(z)^n$,\\
+$\exists R\in [0,\infty) \cup \{\infty\}$ such that:
+\begin{enumerate}
+\item the series converges absolutely ($\forall z\in B(0,R)$; the disk of convergence)
+\item diverges $\forall z$ such that $|z|>R$ 
+\item \begin{equation} R=\frac{1}{\limsup |a_n|^{\frac{1}{n}}}\nonumber \end{equation}
+\end{enumerate}
+(Convention: $\frac{1}{0}=+\infty$ , $\frac{1}{\infty}=0$)
+\end{restatable}
+\begin{proof}
+Theorem 2.5 in Stein-Shakarchi Complex Analysis
+\end{proof}
+\begin{restatable}[]{thm}{}\label{}
+The power series $f(z)=\sum_{n=0}^{\infty} a_nz^n$ defines a holomorphic function (in its disk of convergence)\\
+Derivative of $f$ is obtained by differentiation of each term:\\
+$f^{'}(z)=\sum_{n=0}^{\infty} na_nz^{n-1}$ \\
+$f^{'}$ has same disk of convergence
+\end{restatable}
+\begin{proof}
+Theorem 2.6 in Stein-Shakarchi Complex Analysis
+\end{proof}
+\begin{rem}
+A power series is infinitely differentiable (analytic) in its disk of convergence\\  
+$\Rightarrow$ \hspace{40mm}$ \begin{aligned} f(z)=\sum_{}^{}a_nz^n =\sum_{k=0}^{\infty} \frac{f^{k}(0)}{k!} z^k \nonumber\\ \end{aligned}$
+\end{rem}
+\begin{restatable}[]{prop}{}\label{}
+Let $\Omega_1,\Omega_2 \subset \mathds{C}$ be domains and let $f:\Omega_1\rightarrow \mathds{C}$,
+$g:\Omega_2\rightarrow \mathds{C}$ be continuous function such that $f(\Omega_1)\subseteq \Omega_2$ and that $g(f(z))=z$ ($\forall z\in \Omega_1$).
+If $g$ is differentiable on $\Omega_2$ and if $g^{'}(w)\neq 0$ ($\forall w \in \Omega_2$), then $f$ is differentiable and $f^{'}(z)=\frac{1}{g^{'}(f(z))}$ ($\forall z\in \Omega_1$)
+\end{restatable}
+\begin{proof}
+Use the differentiability of $g$ and the continuity of $f$ to get the result \\
+\end{proof}
+\begin{restatable}[]{thm}{}\label{}
+A branch of logarithm is analytic and its derivative is $\frac{1}{z}$.
+\end{restatable}
+\begin{proof}
+Let $f$ be a branch of log. Define $g(z)=e^z$. Then $g(f(z))=z$. ($e^{f(z)}=z$)
+\end{proof}
+\begin{restatable}[]{lem}{}\label{}
+Let $f:\Omega \rightarrow \mathds{C}$. Then $f$ is differentiable at $z_0\in \Omega$ iff $\exists a\in \mathds{C}$ such that \\
+$f(z_0+h)-f(z_0)= ah+h\psi(h)$ ($\lim_{h \to 0} \psi(h)=0$)
+\end{restatable}
+\begin{proof}
+Use the definition of differentiability of a multivariable function\\
+\end{proof}
+\begin{restatable}[]{thm}{}\label{}
+Let $\Omega \subset \mathds{C}$ be a domain and let $f=u+iv$ is a function from $\Omega$ to $\mathds{C}$.\\
+Then $f$ is analytic at $z_0\in \Omega$ iff the partial derivatives exist, are continuous and satisfy Cauchy-Riemann equations.
+\end{restatable}
+\begin{proof}
+$\Rightarrow$ If $f$ is analytic at $z_0$, then partial derivatives are continuous and satisfy the Cauchy-Riemann equations (follows from theorem 3.2)\\
+$\Leftarrow$ Let $\tilde{f}:\Omega \subseteq \mathds{R}^2\rightarrow \mathds{R}^2$ be defined as $\tilde{f}=(u,v)$\\
+$\tilde{f}$ is differentiable at $z_0=(x_0,y_0)$\\
+(to complete) (Refer to Theorem 2.4 in stein-shakarchi) 
+\end{proof}
+\begin{defn}
+For domain $\Omega$, $H(\Omega)$ is the collection of all analytic functions from $\Omega \rightarrow \mathds{C}$
+\end{defn}
+\begin{restatable}[]{prop}{}\label{}
+Let $f:\Omega\subseteq \mathds{C} \rightarrow \mathds{C}$ such that $f\in H(\Omega)$. If $D$ is a disk with center at $z_0\in \Omega$ and if $\bar{D}\subseteq \Omega$, then $f$ has a power series:
+\begin{align}
+f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n \:\:(\forall z\in D) \nonumber\\
+\text{where}\: a_n=\frac{f^{(n)}(z_0)}{n!}\text{,}\:\: (n\in \mathds{N})\nonumber
+\end{align}
+\end{restatable}
+\begin{proof}
+Differentiate the power series repeatedly (Use Theorem 3.2)
+\end{proof}
+\begin{ex}
+\begin{enumerate}
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} nz^n <\infty \end{aligned}$ \: (converges $\forall z \in B(0,1)$; doesn't converge for $|z|=1$) 
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} \frac{z^n}{n^2} <\infty \end{aligned}$ \:(converges $\forall z\in B(0,1)$; converges for $|z|=1$)
+\item $\begin{aligned}[t] \sum_{n=1}^{\infty} \frac{z^n}{n} <\infty \end{aligned}$ \:(converges for $|z|<1$; diverges otherwise)
+\item $f(z)=e^z \Rightarrow f^{'}(z)=e^z$ (by definition of $e^z$)\\
+Consider $\begin{aligned}[t] g(z)=\sum_{n=1}^{\infty} \frac{z^n}{n!}\end{aligned}$ \\
+$g(z)$ is an entire function (Why?)\\
+Note that $\begin{aligned}[t] f^{(k)}(0)=1\Rightarrow a_k=\frac{f^{(k)}(0)}{k!}=\frac{1}{k!}\Rightarrow f(z)=g(z) \end{aligned}$
+\end{enumerate}
+\end{ex}

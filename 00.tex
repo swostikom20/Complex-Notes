@@ -1,0 +1,74 @@
+\chapter{Preliminaries}
+\begin{defn}[\textbf{Region}]
+An open, connected subset of $\mathds{C}$ is called domain or region.
+\end{defn}
+\begin{align}
+&D(a,r)=\{z\in \mathds{C}|\: |z-a|<r\} \nonumber\\
+&\{z\in \mathds{C}|\:r<|z-a|<R\}  \rightarrow \text{annulus} \nonumber
+\end{align}
+\begin{defn}[\textbf{Exponential function}]
+$exp(z):\mathds{C}\rightarrow\mathds{C}$
+\end{defn} 
+\vspace{-2mm}
+\begin{align}
+&e^z=e^x(cos(y)+isin(y))\nonumber\\
+&e^{z_1+z_2}=e^{z_1}.e^{z_2},  0\notin Rng(exp(z))\nonumber\\
+&|e^{ix}|=1  \:\: (\forall x\in \mathds{R})\nonumber\\
+&e^{z}=1 \:\:\text{iff} \:\: z=2n\pi i\text{,} \:\: n\in \mathds{Z}\nonumber\\
+&e^{z_1}=e^{z_2} \:\:\text{iff}\:\: z_1=z_2+2n\pi i\nonumber
+\end{align}
+\begin{defn}[\textbf{Argument}]
+$arg(z):\mathds{C}\setminus \{0\}\rightarrow\mathds{C}$
+\end{defn}
+\vspace{-2mm}
+\begin{align}
+&arg(z)=\theta \:\:\text{(Angle made wrt positive real axis)} \nonumber\\
+&arg(z) \:\:\text{for} \:\: z\in \mathds{C}\setminus \{0\} \:\:\text{is multivalued function} \nonumber\\
+&arg(z): \mathds{C}\setminus \{0\}\rightarrow (\alpha,\alpha+2\pi] \:\:\text{or}\:\: [\alpha,\alpha+2\pi) \:\:\text{is well-defined}\:\: (\forall \alpha \in \mathds{R})\nonumber
+\end{align} 
+\begin{defn}[\textbf{Principal value}]
+$\begin{aligned}[t] 
+&Arg(z)=\theta  \:\: (-\pi<\theta\leq \pi)\\ &arg(z)=\{Arg(z)+2n\pi:n\in \mathds{Z}\}
+\end{aligned}$ \:\:
+\end{defn}
+\begin{defn}[\textbf{Complex Log}]
+For $z\in \mathds{C}\setminus \{0\}$, define: \begin{equation} log(z)=log(|z|)+ iarg(z) \nonumber \end{equation} 
+\end{defn}
+Notice that $log$ is multivalued\\
+Whenever $arg(z)$ is well-defined (i.e $Rng(arg(z))=[\alpha,\alpha+2\pi)$ or $(\alpha,\alpha+2\pi]$)\\$\Rightarrow log(z)$ is well defined
+\begin{align}
+&Log(z)=log(|z|)+i.Arg(z) \:\:\text{(principal log)} \nonumber\\
+&log(z)=Log(z)+2n\pi i \nonumber
+\end{align}
+\begin{restatable}[]{lem}{log}\label{lem:log}
+For $z\in \mathds{C}\setminus \{0\}$, the values of $log(z)$ are the complex numbers $\omega$ such that $e^{\omega}=z$
+\end{restatable}
+\begin{proof}
+Do it on your own!
+\end{proof}
+\begin{defn}[\textbf{Limit}]
+$f: E\subseteq \mathds{C} \rightarrow \mathds{C}$
+\begin{align}
+&\lim_{z \to z_0} f(z)=l \nonumber\\
+&\forall \epsilon>0,\exists \delta>0 \:\:\text{such that}\:\: 0<|z-z_0|<\delta \Rightarrow |f(z)-l|<\epsilon\nonumber\\
+&z \in (B(z,z_0)\setminus\{0\})\cap E \Rightarrow f(z)\in B(l,\epsilon) \nonumber
+\end{align}
+\end{defn}
+\begin{restatable}[\textbf{Sequential criteria for limit}]{prop}{}\label{}
+ A function $f:E\subseteq  \mathds{C}\rightarrow \mathds{C}$ has a limit point $l$ as $z\rightarrow z_0$ iff $f(z_n)\rightarrow l$ for every sequence $\{z_n\}\subset E\setminus \{z_0\}$ with $z_n\rightarrow z_0$ as $n\rightarrow \infty$
+\end{restatable} 
+\begin{restatable}[]{thm}{}\label{}
+If $f:E\subset \mathds{C} \rightarrow \mathds{C}$ has a limit at $z_0$, then $f$ is bounded near $z_0$
+\end{restatable}
+\begin{defn}[\textbf{Continuity}]
+$f:E\subseteq \mathds{C}\rightarrow \mathds{C}$\\
+$f$ is continuous at $z_0\in E$ if for every basic neighbourhood $V$ of $f(z_0)$, there is a basic neighbourhood $U$ of $z_0$ such that $f(U)\subset V$. Let $V=B(f(z_0),\epsilon)$ \& $U=B(z_0,\delta)$,
+\begin{center}
+$z\in B(z_0,\delta)\Rightarrow f(z)\in B(f(z_0),\epsilon)$\\
+$|z-z_0|<\delta \Rightarrow |f(z)-f(z_0)|<\epsilon$\\
+Then, $z\in B(z_0,\delta)\setminus \{z_0\} \Rightarrow f(z)\in B(f(z_0),\epsilon)$\\
+$\lim_{z \to z_0} f(z)=f(z_0)$
+\end{center}
+\end{defn}
+\textbf{Prove}: Let $f:G\rightarrow \mathds{C}$ such that $f=u+ iv$ (where $u,v:G\rightarrow \mathds{R}$)\\
+$f$ is continuous at a point $z_0$ iff $u,v$ are continuous at $z_0$

@@ -1,0 +1,249 @@
+\chapter{Complex integration}
+\begin{defn}[\textbf{Path}]
+A \textbf{path} or a \textbf{curve} is a continuous function, $\gamma:[a,b]\rightarrow \mathds{C}$ 
+($Rng(\gamma)\subset \mathds{C}$) 
+\end{defn}
+$\gamma(a)$: initial point of path; $\gamma(b)$: endpoint of path\\
+$[a,b]$: parameter interval 
+\begin{defn}
+$\gamma$ is said to be:
+\begin{enumerate}
+    \item closed if $\gamma(a)=\gamma(b)$
+    \item smooth or $C^1$ if $\gamma$ is differentiable and $\gamma^{'}$ is continuous
+    \item simple if $\gamma$ is one-one
+    \item simple closed if $\gamma(a)=\gamma(b)$ and $\gamma$ is one-one on $(a,b)$
+    \item piecewise smooth if there are finitely many points $s_0,s_1 \dots s_n\in [a.b]$ with $a=s_0<s_1<s_2 \dots <s_n=b$ such that the restriction of $\gamma$ to each $(s_i,s_{i+1})$ is smooth.
+\end{enumerate}
+\end{defn}
+$-\gamma$ or $\gamma^{-1}$ is defined by $\gamma^{-1}(t)=\gamma(a+b-t)$\\
+$\upphi:[0,1]\rightarrow [a,b]$ defined as: $\upphi(t)=a+(b-a)t$ (one-one and differentiable)
+\section{\textbf{Line integral}} 
+$f:[a,b]\rightarrow \mathds{C}$ : continuous\\
+$f=u+iv$, where $u,v:[a,b]\rightarrow \mathds{R}$\\
+Define $\int_{a}^{b}f(t) dt= \int_{a}^{b}u(t) dt+ i \int_{a}^{b} v(t) dt$\\
+\textbf{Properties}:
+\begin{enumerate}
+    \item $\int_{a}^{b} c.f(t) dt= c.\int_{a}^{b}f(t) dt$
+    \item $| \int_{a}^{b}f(t) dt |\leq \int_{a}^{b}|f(t)| dt$
+\end{enumerate}
+\textbf{Length of a smooth curve}: Let $\gamma:[a,b]\rightarrow \mathds{C}$ be a smooth curve. \\
+$L(\gamma)= \int_{a}^{b} |\gamma^{'}(t)| dt$\\
+$=\int_{a}^{b} \sqrt{\gamma_1^{'}(t)^2+\gamma_2^{'}(t)^2}  dt$     \: ($\gamma(t)=\gamma_1(t)+i.\gamma_2(t)$)\\
+If $\gamma:[a,b]\rightarrow C$ is piecewise smooth then $L(\gamma)$ is the sum of the length of its smooth parts.
+\begin{defn}[\textbf{Orientation}]
+A curve $\gamma$ is \emph{positively} oriented if traversed in anti-clockwise direction else is \emph{negatively} oriented.
+\end{defn}
+\begin{ex}
+\begin{enumerate}
+    \item $\gamma(t)=re^{it}$, ($t\in [0,2\pi]$) ($r>0$: simple, smooth curve); 
+    $L(\gamma)=\int_{0}^{2\pi} |ire^{it}| dt= r(2\pi)$
+    \item $\gamma(t)=e^{it}$, ($t \in [0,4\pi]$): closed, smooth, traverses the unit circle twice in the positive direction
+\end{enumerate}
+\end{ex}
+\begin{defn}[\textbf{integration over paths}]
+$\gamma[a,b]\rightarrow \mathds{C}$ is a smooth curve and $f:\gamma \rightarrow \mathds{C}$: continuous \\
+$\int_{\gamma}^{} f(z) dz= \int_{a}^{b} f(\gamma(t)) \gamma^{'}(t) dt=\int_{a}^{b}g(t) dt$ \\
+($g(t)=f(\gamma(t)) \gamma^{'}(t)$ where $g:[a,b]\rightarrow \mathds{C}$)
+\end{defn}
+Let $[a_1,b_1]$ be any closed interval. Then $\exists \upphi:[a_1,b_1]\rightarrow [a,b]$ (one-one,differentiable and $\upphi(a_1)=a;\upphi(a_2)=b$)\\
+$\upphi[a_1,b_1] \rightarrow \mathds{C}$: smooth \\
+$\int_{a_1}^{b_1}f(\gamma_1(t)).\gamma_1^{'}(t)dt$ \: ($=\int_{\gamma_1}^{}f(z) dz$)\\
+$=\int_{a_1}^{b_1}f(\gamma(\upphi(t))).\upphi^{'}(t) dt$\\
+$=\int_{\gamma}^{} f(\gamma(s)) \gamma^{'}(s) ds=\int_{\gamma}^{}f(z) dz$ \: ($\upphi(t)=s$)\\
+If $\gamma$ is piecewise smooth, the integral can be split into the sum of its smooth components:\\
+if $\gamma=\gamma_1+\gamma_2 \dots +\gamma_n$, then $\int_{\gamma}^{} f = \int_{\gamma_1}^{} f + \dots + \int_{\gamma_n}^{} f$.\\
+Note that $\gamma_i's$ are smooth.
+\begin{restatable}[]{prop}{}\label{}
+If $f$ and $g$ are continuous on a smooth curve $\gamma$, then 
+\begin{enumerate}
+    \item $\int_{\gamma}^{} \alpha f+\beta g = \alpha \int_{\gamma}^{} f + \beta\int_{\gamma}^{} g$
+    \item $\int_{\gamma^{-}}^{} f = - \int_{\gamma}^{} f$
+    \item $|\int_{\gamma}^{} f(z) dz| \leq \|f\|_{\infty,\gamma} \: L(\gamma)$ \: ($\|f\|_{\infty,\gamma}=sup_{z\in \{\gamma\}}|f(z)|$)
+\end{enumerate}
+\end{restatable}
+\begin{proof}
+\begin{equation*}    
+\begin{split}    
+|\int_{\gamma}^{} f|&= |\int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt| \leq \int_{\gamma}^{} |f(\gamma(t)).\gamma^{'}(t)| dt\\
+&\leq \|f\|_{\infty,\gamma}\:  \int_{a}^{b} |\gamma^{'}(t)| dt  \: \:\: (L(\gamma)=\int_{a}^{b} |\gamma^{'}(t)| dt)
+\end{split}
+\end{equation*}
+\end{proof}
+\textbf{Examples}: \\
+(i)Let $\gamma$ be the arc of a circle of radius 3 ($|z|=3$) from $3$ to $3i$.\\
+Show that:\\
+$$|\int_{\gamma}^{} \frac{z+4}{z^3-1} dz| \leq \frac{21\pi}{52}$$\\
+(ii) $\gamma: |z|=2$  (traverse curve in positive direction)\\
+Prove: $$|\int_{\gamma}^{} \frac{e^z dz}{z^2+1} | \leq \frac{4\pi e^2}{3}$$
+\begin{restatable}[\textbf{Fundamental theorem of calculus}]{thm}{}\label{}
+If $f:[a,b]\rightarrow \mathds{R}$ has a primitive F, then $\int_{a}^{b} f(x) dx =F(b)-F(a)$ \: ($F^{'}(x)=f(x), \forall x\in [a,b]$)\\
+\textbf{For complex case}: Suppose $G\in \mathds{C}$ be a domain. If a continuous function $f:G\rightarrow \mathds{C}$ has a primitive $F$ on $G$ and if $\gamma$ is a smooth curve in G with initial and terminal points $\omega_1$ and $\omega_2$ respectively, then:\\
+$\int_{\gamma}^{} f = F(\omega_1) - F(\omega_2)$
+\end{restatable}
+\begin{proof}
+Let $[a,b]\in \mathds{R}$ be a parameter interval for $\gamma$ and $\gamma(a)=\omega_1$; $\gamma(b)=\omega_2$\\
+Given $F^{'}(z)=f(z)$   ($\forall z \in G$)\\
+$$\int_{\gamma}^{} f = \int_{a}^{b} f(\gamma(t)).\gamma^{'}(t) dt = \int_{a}^{b} F^{'}(\gamma(t))\gamma^{'}(t) dt$$\\
+$$= \int_{a}^{b} (F \circ \gamma)^{'}(t) dt = F \circ \gamma(b)-F \circ \gamma(a)= F(\omega_2)-F(\omega_1)$$\\
+\end{proof}
+\begin{restatable}[]{cor}{}\label{}
+If $\gamma$ is a closed curve (smooth), then\\
+$\begin{aligned}[t] \int_{\gamma}^{} f =0\nonumber \end{aligned}$ 
+\end{restatable}
+\begin{proof}
+Follows from FTC
+\end{proof}
+\begin{restatable}[]{cor}{}\label{}
+If $f\in H(\Omega)$ for a region $\Omega\in \mathds{C}$ and if $f^{'}=0$ on $\Omega$, then $f$ is a constant function.
+\end{restatable}
+\begin{proof}
+Fix a point $\omega_0\in \Omega$. It suffices to show that $f(\omega)=f(\omega_0), \forall \omega \in \Omega$
+\end{proof}
+\section{\textbf{Simple Closed Curve}}
+\begin{restatable}[\textbf{Jordan-curve theorem}]{thm}{}\label{}
+Every simple closed curve in $\mathds{C}$ divides the complex plane into two regions. One of these regions is bounded and the other is unbounded. The bounded region is called the interior of the curve.
+\end{restatable}
+\begin{ex}
+$G=\mathds{C}\setminus \{0\}$\\
+$f(z)=\frac{1}{z}$ on $G$, $\gamma: |z|=1$, $\gamma(t)=e^{it}$, ($t\in [0,2\pi]$)\\
+$$\int_{\gamma}^{} f= \int_{0}^{2\pi} f(\gamma(t)).\gamma^{'}(t) dt= \int_{0}^{2\pi} \frac{i.e^{it}}{e^{it}} dt =2\pi i\neq 0$$
+\end{ex}
+\begin{defn}[\textbf{Winding number or index of a closed curve}]
+Let $\gamma$ be a closed curve on $\mathds{C}$ and let $\alpha \in \mathds{C}\setminus \{\gamma\}$. The winding number of $\gamma$ about $\alpha$ or the index of $\gamma$ with respect to $\alpha$ is denoted by,
+$\eta(\gamma;\alpha)/Ind_{\gamma}(\alpha)$ defined by:\\
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{}\frac{dz}{z-\alpha}$$
+\end{defn}
+\begin{ex}
+$\gamma: [0,6\pi]\rightarrow \mathds{C}$ \\
+$\gamma(t)=a+re^{it}$ \\
+$$\eta(\gamma;\alpha)=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{\gamma^{'}(t)}{\gamma(t)-a}=\frac{1}{2\pi i}\int_{\gamma}^{} \frac{1}{a+re^{it}-a}.ire^{it} dt=3$$
+\end{ex}
+\begin{restatable}[]{thm}{}\label{}
+Let $\gamma$ be a smooth, closed curve in $\mathds{C}$. Let $\alpha\in \mathds{C}\setminus \{\gamma\}$. Then $\eta(\gamma;\alpha)\in \mathds{Z}$.
+\end{restatable}
+\begin{proof}
+$\upphi:[0,1] \rightarrow \mathds{C}$\\
+$\begin{aligned}[t] \upphi= \frac{\gamma^{'}(s)}{\gamma(s)-\alpha} \end{aligned}$ and $g:[0,1]\rightarrow \mathds{C}$, $\begin{aligned}[t]g(t)=\int_{0}^{t} \upphi(s) ds\end{aligned}$\\
+$g(0)=0$ and $\begin{aligned}[t] g(1)=\int_{0}^{1} \upphi(s) ds= \int_{0}^{1} \frac{\gamma^{'}(s)}{\gamma-\alpha} ds= \int_{\gamma}^{} \frac{dz}{z-\alpha} \end{aligned}$\\
+\textbf{Claim}: $\begin{aligned}[t] g^{'}(t)=\upphi(t) \end{aligned}$\\
+Proof: To show that $\begin{aligned}[t] \lim_{h \to 0}\frac{g(t+h)-g(t)}{h}-\upphi(t)=0 \end{aligned}$\\
+$\begin{aligned}[t] \frac{g(t+h)-g(t)}{h}-\upphi(t)=\frac{1}{h}\int_{t}^{t+h}[\upphi(t+h)-\upphi(t)] ds \end{aligned}$ \:(for $h>0$, similar for $h<0$)\\
+Since $\upphi$ is uniformly continuous on $[0,1]$, $\forall \epsilon >0$, $\exists \delta>0$ such that \\
+$|s-t|<\delta \Rightarrow |\upphi(s)-\upphi(t)|<\epsilon$ \\
+If $h<\delta$, then\\
+$\begin{aligned}[t] |\frac{1}{h}\int_{t}^{t+h}[\upphi(t+h)-\upphi(t)]ds|\leq \frac{1}{h}\int_{t}^{t+h}|\upphi(t+h)-\upphi(t)| ds<\epsilon \end{aligned}$\\
+Same thing holds if $h<0$\\
+Therefore, $\begin{aligned}[t] h<\delta \Rightarrow |\frac{g(t+h)-g(t)}{h}-\upphi(t)|<\epsilon \end{aligned}$\\
+Hence, $g^{'}=\upphi$\\
+Set $\begin{aligned}[t] h(t)=e^{-g(t)}(\gamma(t)-\alpha)\end{aligned}$\\
+We have, $\begin{aligned}[t] h^{'}(t)=e^{-g(t)}\gamma^{'}(t)-e^{-g(t)}(\gamma(t)-\alpha)g^{'}(t)=0\end{aligned}$\\
+Hence, $h(t)$ is a constant function.
+\begin{align}
+&e^{-g(0)}(\gamma(0)-\alpha)=e^{-g(1)}\:\:(\gamma(1)-\alpha)\nonumber \\
+\Rightarrow &e^{-g(0)}=e^{-g(1)}=1 \:\:(\text{As $\gamma$ is a closed curve})\nonumber
+\end{align}
+hence $g(1)=2k\pi i$ (for $k\in \mathds{Z}$)\\
+Therefore, $\begin{aligned}[t] \int_{\gamma}^{}\frac{dz}{z-\alpha}=2k\pi i\Rightarrow \frac{1}{2\pi i}\int_{\gamma}^{}\frac{dz}{z-\alpha}=k\in \mathds{Z} \end{aligned}$ 
+\end{proof}
+\begin{rem}
+The theorem is true if $\gamma$ is a closed contour. (Prove it!) \\(A contour is a piecewise smooth curve)\\
+\end{rem}
+\begin{restatable}[]{thm}{}\label{}
+Let $\gamma$ be a closed contour and let $\alpha \in \mathds{C}\setminus \{\gamma\}$. Then,\\
+(a) the function $f_{\gamma}: \mathds{C}\setminus \{\gamma\}\rightarrow \mathds{Z}$ is continuous. ($\alpha \rightarrow \eta(\gamma;\alpha)$)\\
+(b) $f$ is constant on every component of $\mathds{C}\setminus \{\gamma\}$
+\end{restatable}
+\begin{proof}
+(a) Let $\alpha_0 \in \mathds{C}\setminus \{\gamma\}$. Then the function $g:t \rightarrow |\alpha_0-\gamma(t)|$ is continuous.\\
+$g$ attains its infimum, say $\begin{aligned}[t] s=\inf_{t\in[0,1]} g(t)\end{aligned}$\\
+If $\alpha$ is very close to $\alpha_0$, then $\begin{aligned}[t]|\alpha-\gamma(t)|\geq \frac{s}{2}\end{aligned}$. Then,
+\begin{align}
+&|\frac{1}{z-\alpha}-\frac{1}{z-\alpha_0}|=\frac{|\alpha-\alpha_0|}{|z-\alpha||z-\alpha_0|}\leq \frac{2}{s^2}|\alpha-\alpha_0| \:\:(z\in \gamma)\nonumber\\
+&|f_{\gamma}(\alpha)-f_{\gamma}(\alpha_0)|\leq \frac{1}{2\pi i} \int_{\gamma}^{}|\frac{1}{z-\alpha}-\frac{1}{z-\alpha_0}| dz\nonumber\\
+&\hspace{25mm}\leq \frac{2}{s^2}|\alpha -\alpha_0|\frac{1}{2\pi i}\:L(\gamma)=M(\alpha-\alpha_0) \:\: (\text{Lipschitz continuous $\Rightarrow$ continuous})\nonumber
+\end{align}
+(b) Let $V$ be a component, then $f(V)$ is connected in $\mathds{Z}\Rightarrow f(V)$ is a constant $\in \mathds{Z}$
+\end{proof}
+\begin{restatable}[]{prop}{}\label{}
+Let $\gamma$ be a closed contour in $\mathds{C}$. Then $\eta(\gamma;\alpha)=0$ $\forall \alpha$ in the unbounded component of $\mathds{C}\setminus \{\gamma\}$
+\end{restatable}
+\begin{proof}
+Since $\gamma$ is closed and bounded, $\{\gamma\}\subseteq \bar{B}(0;R)$ for some $R>0$.\\
+Let $\alpha \in\mathds{C}\setminus \bar{B}(0;R)$ \\
+$|z-\alpha|\geq |\alpha|-|z|\geq |\alpha-R|$\\
+$\begin{aligned}[t] |\eta(\gamma;\alpha)|=\frac{1}{2\pi}|\int_{\gamma}^{}\frac{dz}{z-\alpha}| \leq \frac{1}{2\pi} \int_{\gamma}^{}\frac{dz}{|z-\alpha|}\leq \frac{1}{2\pi} \frac{1}{|\alpha|-R}\:L(\gamma)\end{aligned}$\\
+One can find a large enough $|\alpha|$ to make $\eta(\gamma;\alpha)<1$\\
+Hence, $\eta(\gamma;\alpha)=0$, when $|\alpha|$ is sufficiently large \\
+Since, $\eta(\gamma;\alpha)$ is constant within a component, $\eta(\gamma,\beta)=0 \:\:(\forall \beta$ in unbounded component)\\
+\end{proof}
+\begin{restatable}[]{prop}{}\label{}
+Let $\gamma$ be a closed contour consisting of curves $\gamma_1,\dots \gamma_n$.Then,\\
+$\eta(\gamma;\alpha)=\eta(\gamma_1;\alpha)+\dots +\eta(\gamma_n;\alpha)$ (Prove!)
+\end{restatable}
+\begin{restatable}[\textbf{Cauchy-Goursat theorem}]{thm}{}\label{}
+Let $\Omega\subseteq \mathds{C}$ be a domain and let $f\in H(\Omega)$. Then for any closed contour $\gamma$ lying in the interior of $\Omega$,\\
+$\int_{\gamma}^{} f(z) dz=0$
+\end{restatable}
+\begin{proof}
+Step-I (Goursat's theorem): \\
+When $\gamma=T$, a triangle\\
+Let $T^{(0)}=T$\\
+%figure
+Let $diam(T^{(0)})=d^{(0)}$ and $peri(T^{(0)})=p^{(0)}$
+\begin{equation*}
+\begin{split}
+&\int_{T^{(0)}}^{} f(z) dz \\
+=&\int_{T^{(1)}}^{} f(z) dz + \int_{T^{(2)}}^{} f(z) dz + \int_{T^{(3)}}^{} f(z) dz + \int_{T^{(4)}}^{} f(z) dz \\
+&|\int_{T^{(0)}}^{} f(z) dz| \hspace{2mm}\leq \hspace{2mm} 4|\int_{T^{(j)}}^{} f(z) dz| \:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:(\text{for some}\: j\in \{1,2,3,4\})
+\end{split}
+\end{equation*}
+Call this $T^{(j)}$ to be $T^{(1)}$ (suppose)
+\begin{equation*}
+\begin{split} 
+diam(T^{(1)})=\frac{1}{2}diam(T^{(0)}) \\
+d^{(1)}=\frac{d^{(0)}}{2}\:\: \text{and}\:\: p^{(1)}=\frac{p^{(0)}}{2}
+\end{split}
+\end{equation*}
+Do the same process with $T^{(1)}$ to get, 
+\begin{equation*} |\int_{T^{(1)}}^{} f(z) dz| \hspace{2mm}\leq \hspace{2mm}4|\int_{T^{(2)}}^{} f(z) dz| \end{equation*}
+Continuing, 
+\begin{equation*} 
+\begin{split}
+&|\int_{T^{(0)}}^{} f(z) dz| \leq 4^n|\int_{T^{(n)}}^{} f(z) dz| \\
+&d^{(n)}=\frac{d^{(0)}}{2^n}\:\: \text{and}\:\: p^{(n)}=\frac{p^{(0)}}{2^n} \\
+&\triangle_n= T^{(n)} \cup Int(T^{(n)}) \:\:(\text{Int refers to interior of triangle}) \\
+&\triangle_0\supseteq \triangle_1 \supseteq \dots \triangle_n\supseteq \dots \:\: (\text{nested compact sets})
+\end{split}
+\end{equation*}
+$d^{(n)}$ tends to $0$\\
+Therefore, exists $!z_0 \in \bigcap_{i=0}^{\infty} \triangle_n$ \\
+$f$ is holomorphic at $z_0$ 
+\begin{equation*}
+\begin{split}    
+&f(z_0+h)-f(z_0)=hf^{'}(z_0)+h\psi(h) \:\:(\lim_{h \to 0}\psi(h)=0)\\
+&\text{So,}\:\: f(z)-f(z_0)=(z-z_0)f^{'}(z_0) + (z-z_0)\psi_1(h)\:\: \text{where}\:\: \lim_{z \to z_0}\psi_1(z)=0
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}    
+&\Rightarrow \int_{T}^{} f(z) dz\\
+&= \int_{T}^{} f(z_0) dz + \int_{T}^{} (z-z_0)f^{'}(z_0) dz + \int_{T}^{} (z-z_0)\psi_1(z) dz= \int_{T}^{} (z-z_0)\psi_1(z) dz
+\end{split}
+\end{equation*}
+Then, 
+\begin{equation*}
+\begin{split}
+&\psi_1(z)= \frac{f(z)-f(z_0)}{z-z_0}-f^{'}(z_0) 
+\end{split}
+\end{equation*}
+Let  $\sup_{z\in T^{(n)}}|\psi_1(z)|= E_n$ ($E_n\rightarrow 0\:$ \text{as}\: $n \rightarrow \infty$) 
+\begin{equation*}
+\begin{split}
+&|\int_{T^{(n)}}^{} f(z) dz|\\
+=\:\:&|\int_{T^{(n)}}^{} (z-z_0)\psi_1(z) dz|\leq \int_{T^{(n)}}^{} |z-z_0||\psi_1(z)| dz \\
+\leq\:\:& d^{(n)}E_np^{(n)}=\frac{d^{(0)}p^{(0)}}{4^n}E_n \\
+&|\int_{T^{(0)}}^{} f(z) dz|\leq 4^n|\int_{T^{(n)}}^{} f(z) dz|\leq d^{(0)}p^{(0)}E_n\:\: (\forall n)
+\end{split}
+\end{equation*}
+Take limit on both sides as $n\rightarrow \infty\Rightarrow |\int_{T^{(0)}}^{} f(z) dz|=0$ \\
+\end{proof}
